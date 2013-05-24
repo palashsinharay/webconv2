@@ -34,6 +34,10 @@ a:hover
 		<a href='<?php echo site_url('examples/offices_management')?>'>Offices</a> | -->
 		<a href='<?php echo site_url('main/employees')?>'>Employees</a> |
                 <a href='<?php echo site_url('main/cms_page')?>'>CMS</a> |
+				<a href='<?php echo site_url('main/tender')?>'>Tender</a> |
+				<a href='<?php echo site_url('main/news')?>'>News</a> |
+				<a href='<?php echo site_url('main/job')?>'>Jobs</a> |
+				<a href='<?php echo site_url('main/media_gallery')?>'>Media Library</a> |
 <!--		<a href='<?php echo site_url('examples/film_management')?>'>Films</a> |-->
                 <a href='<?php echo site_url('auth/logout')?>'>logout</a>
 	</div>
