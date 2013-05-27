@@ -15,20 +15,16 @@ class Admin extends CI_Controller {
  
     }
  
-    public function index()
-    {
+    public function index() {
         echo "<h1>Welcome to the world of Codeigniter</h1>";//Just an example to ensure that we get into the function
         die();
     }
     
-    function _example_output($output = null)
-
-    {
+    function _example_output($output = null) {
         $this->load->view('example.php',$output);    
     }
  
-    public function employees()
-    {
+    public function employees() {
 
         //$this->grocery_crud->set_table('employees');
         $output = $this->grocery_crud->render();
@@ -39,8 +35,7 @@ class Admin extends CI_Controller {
         //        die();
     }
     
-    function short()
-    {
+    function short() {
         $crud = new grocery_CRUD();
         $crud->set_table('employees');
         $crud->columns('lastName','firstName','email','jobTitle');
@@ -49,8 +44,8 @@ class Admin extends CI_Controller {
 
         $this->_example_output($output);
     }
-    function full()
-    {
+    
+    function full() {
         $crud = new grocery_CRUD();
 
         //below code is for datagrid view
@@ -87,17 +82,18 @@ class Admin extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('cms_page')
             ->set_subject('CMS PAGE')
-            ->columns('menutitle','content','date','pid')
+            ->columns('menutitle','content','date','pid','categories_id')
+            ->display_as('categories_id','category name')
             ->display_as('menutitle','Title')
             ->display_as('content','Content')
             ->display_as('pid','parent id');
         
         
         //below code is for edit and add
-        $crud->fields('menutitle','content');
+        $crud->fields('menutitle','content','categories_id');
         $crud->required_fields('menutitle','content');
         
-        
+        $crud->set_relation('categories_id','categories','category_name');
         
         //below is validation
         //$crud->set_rules('lastName','last name nnn','numeric|required')
@@ -110,7 +106,7 @@ class Admin extends CI_Controller {
         $this->_example_output($output);
     }
 
-   function tender() {
+    function tender() {
         $crud = new grocery_CRUD();
 
         //below code is for datagrid view
@@ -140,102 +136,99 @@ class Admin extends CI_Controller {
         $this->_example_output($output);
     }
 	
-	function  news() {
-        $crud = new grocery_CRUD();
+    function  news() {
+    $crud = new grocery_CRUD();
 
-        //below code is for datagrid view
-        $crud->set_theme('datatables');
-        $crud->set_table('news')
-            ->set_subject('News PAGE')
-            ->columns('title','description','date');
-            //->display_as('menutitle','Title')
-           // ->display_as('content','Content')
-           // ->display_as('pid','parent id');
-        
-        
-        //below code is for edit and add
-        $crud->fields('title','description','date');
-        $crud->required_fields('title','description');
-        
-        
-        
-        //below is validation
-        //$crud->set_rules('lastName','last name nnn','numeric|required')
-        //     ->set_rules('firstName','first name nnn','integer|required')
-        //     ->set_rules('email','email nnn','valid_email|required');
-        //below code is for file upload
-        //$crud->set_field_upload('filename','assets/uploads/files');
-        
-        $output = $crud->render();
-        $this->_example_output($output);
-    }
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('news')
+        ->set_subject('News PAGE')
+        ->columns('title','description','date');
+        //->display_as('menutitle','Title')
+       // ->display_as('content','Content')
+       // ->display_as('pid','parent id');
 
 
-	function  job() {
-        $crud = new grocery_CRUD();
-
-        //below code is for datagrid view
-        $crud->set_theme('datatables');
-        $crud->set_table('job')
-            ->set_subject('Jobs PAGE')
-            ->columns('title','email','desc','filename','post_date');
-            //->display_as('menutitle','Title')
-           // ->display_as('content','Content')
-           // ->display_as('pid','parent id');
-        
-        
-        //below code is for edit and add
-        $crud->fields('title','email','desc','filename','post_date');
-        //$crud->required_fields('title','email',);
-        
-        
-        
-        //below is validation
-		$crud->set_rules('title','title ','required')
-             ->set_rules('email','email','valid_email|required')
-             ->set_rules('desc','description ','required')
-			 ->set_rules('post_date','Post Date ','required');
-        //below code is for file upload
-        $crud->set_field_upload('filename','assets/uploads/files');
-        
-        $output = $crud->render();
-        $this->_example_output($output);
-    }
+    //below code is for edit and add
+    $crud->fields('title','description','date');
+    $crud->required_fields('title','description');
 
 
-	function  media_gallery() {
-        $crud = new grocery_CRUD();
 
-        //below code is for datagrid view
-        $crud->set_theme('datatables');
-        $crud->set_table('media_gallery')
-            ->set_subject('Media Library')
-            ->columns('id','Mediatitle','Mediadetails','mediaimage','date','status');
-            //->display_as('menutitle','Title')
-           // ->display_as('content','Content')
-           // ->display_as('pid','parent id');
-        
-        
-        //below code is for edit and add
-        $crud->fields('Mediatitle','Mediadetails','mediaimage','date','status');
-        //$crud->required_fields('title','email',);
-        
-        
-        
-        //below is validation
-		$crud->set_rules('Mediatitle','Mediatitle ','required')
-             ->set_rules('Mediadetails','Mediadetails','required')
-             ->set_rules('mediaimage','mediaimage ','required')
-			 ->set_rules('date','date','required');
-        //below code is for file upload
-        $crud->set_field_upload('mediaimage','assets/uploads/files');
-        
-        $output = $crud->render();
-        $this->_example_output($output);
-    }
+    //below is validation
+    //$crud->set_rules('lastName','last name nnn','numeric|required')
+    //     ->set_rules('firstName','first name nnn','integer|required')
+    //     ->set_rules('email','email nnn','valid_email|required');
+    //below code is for file upload
+    //$crud->set_field_upload('filename','assets/uploads/files');
+
+    $output = $crud->render();
+    $this->_example_output($output);
+}
+
+    function  job() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('job')
+        ->set_subject('Jobs PAGE')
+        ->columns('title','email','desc','filename','post_date');
+        //->display_as('menutitle','Title')
+       // ->display_as('content','Content')
+       // ->display_as('pid','parent id');
 
 
-function featured_menu() {
+    //below code is for edit and add
+    $crud->fields('title','email','desc','filename','post_date');
+    //$crud->required_fields('title','email',);
+
+
+
+    //below is validation
+            $crud->set_rules('title','title ','required')
+         ->set_rules('email','email','valid_email|required')
+         ->set_rules('desc','description ','required')
+                     ->set_rules('post_date','Post Date ','required');
+    //below code is for file upload
+    $crud->set_field_upload('filename','assets/uploads/files');
+
+    $output = $crud->render();
+    $this->_example_output($output);
+}
+
+    function  media_gallery() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('media_gallery')
+        ->set_subject('Media Library')
+        ->columns('id','Mediatitle','Mediadetails','mediaimage','date','status');
+        //->display_as('menutitle','Title')
+       // ->display_as('content','Content')
+       // ->display_as('pid','parent id');
+
+
+    //below code is for edit and add
+    $crud->fields('Mediatitle','Mediadetails','mediaimage','date','status');
+    //$crud->required_fields('title','email',);
+
+
+
+    //below is validation
+            $crud->set_rules('Mediatitle','Mediatitle ','required')
+         ->set_rules('Mediadetails','Mediadetails','required')
+         ->set_rules('mediaimage','mediaimage ','required')
+                     ->set_rules('date','date','required');
+    //below code is for file upload
+    $crud->set_field_upload('mediaimage','assets/uploads/files');
+
+    $output = $crud->render();
+    $this->_example_output($output);
+}
+
+    function featured_menu() {
         $crud = new grocery_CRUD();
 
         //below code is for datagrid view
