@@ -23,7 +23,7 @@ class Cms extends CI_Model {
 		parent::__construct();
 	}
 
-	//function get_page_content_front_end($PageUrl)
+	//function for getting cms page content
 	function get_page_content($id)
 	{
 		
@@ -36,6 +36,23 @@ class Cms extends CI_Model {
 		echo "</pre>";*/
 		
 		return $this->result[0];
+	}	
+
+
+	//function for getting gallery page content
+	function get_gallery_content_all()
+	{
+		
+		$query = $this->db->get_where($this->_meduiatable,array());
+		//echo $this->db->last_query();
+		//die();
+		$this->result = $query->result();
+/*		echo "<pre>";
+		print_r($this->result);
+		echo "</pre>";
+		die();
+*/		
+		return $this->result;
 	}	
 	
 

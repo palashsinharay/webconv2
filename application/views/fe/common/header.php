@@ -4,11 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Webcon Consulting India Ltd.</title>
 <link href="<?php echo site_url('css/style.css')?>" rel="stylesheet" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('css/jquery.lightbox-0.4.css')?>" media="screen" />
 
 <script type="text/javascript" src="<?php echo site_url('script/jquery-1.js')?>"></script>
 <script type="text/javascript" src="<?php echo site_url('script/banner.js')?>"></script>
 <script type="text/javascript" src="<?php echo site_url('script/jcarousellite_1.0.1.min.js')?>"></script>
 <script type="text/javascript" src="<?php echo site_url('script/jquery.easing.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo site_url('script/jquery.lightbox-0.4.js')?>"></script>
 <script type="text/javascript">
 $(function() {
     $(".carouel_area").jCarouselLite({
@@ -18,6 +20,11 @@ $(function() {
 });
 
 </script>
+<script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+    </script>
 </head>
 
 <body>
@@ -34,8 +41,8 @@ $(function() {
 <div class="navigaion_pan">
 
 <ul>
-<li><a href="<?php echo base_url();?>main/index" class="active">Home</a></li>
-<li><a href="<?php echo base_url();?>main/page/1">Who We Are</a></li>
+<li><a href="<?php echo site_url('main/index');?>" class="active">Home</a></li>
+<li><a href="<?php echo site_url('main/page/1');?>">Who We Are</a></li>
 
 <li class="drop"><a href="<?php echo base_url();?>main/page/17">What We Do</a>
 <div class="drop_pan" style="width:160px;">
@@ -47,9 +54,9 @@ $(function() {
 </li>
 
 <li><a href="#">Recruitment</a></li>
-<li><a href="#">Photo Gallery</a></li>
+<li><a href="<?php echo site_url('main/gallery')?>">Photo Gallery</a></li>
 <li><a href="#">Resouce Centre</a></li>
-<li><a href="<?php echo base_url();?>main/page/19">Contact Us</a></li>
+<li><a href="<?php echo site_url('main/page/19');?>">Contact Us</a></li>
 </ul>
 
 
