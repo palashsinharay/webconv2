@@ -41,6 +41,17 @@ class Main extends CI_Controller {
 		die();
 */		$this->_renderView('page',$data);    
     }
+
+    public function gallery()
+    {
+		$data['galleryContent'] = $this->Cms->get_gallery_content_all();
+		/*echo "<pre>";
+		print_r($data['galleryContent']);
+		echo "</pre>";*/
+		//die();
+		$this->load->view('fe/gallery.php',$data);     
+    }
+
 	
  // Listing pages for job listing , gallery , resource center ????   
 
