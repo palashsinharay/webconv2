@@ -241,7 +241,7 @@ class Admin extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('featured_menu')
             ->set_subject('Featured menu')
-            ->columns('featured_menu_id','id','icon')
+            ->columns('featured_menu_id','id','icon','status')
             ->display_as('featured_menu_id','featured menu id') 
             ->display_as('id','menutitle')
             ->display_as('icon','icon');

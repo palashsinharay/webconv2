@@ -1,4 +1,4 @@
-<?php include ("common/header.php");
+<?php //include ("common/header.php");
 ?>
 
 <div class="clear"></div>
@@ -64,4 +64,4 @@
 <!-- wrappr end -->
 <div class="clear"></div>
 <!-- Footer start -->
-<?php include("common/footer.php");?>
+<?php //include("common/footer.php");?>

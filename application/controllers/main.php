@@ -16,6 +16,8 @@ class Main extends CI_Controller {
  
     }
     public function _renderView($page,$data) {
+                
+                $data['featured_menu'] = $this->Cms->get_featured_menu();
                 $this->load->view('fe/common/header.php',$data);
 		$this->load->view('fe/'.$page.'.php',$data);
                 $this->load->view('fe/common/footer.php',$data);
@@ -27,14 +29,14 @@ class Main extends CI_Controller {
     public function index($id = 1)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
-                $data['featured_menu'] = $this->Cms->get_featured_menu();
+//                $data['featured_menu'] = $this->Cms->get_featured_menu();
                 $this->_renderView('index',$data);
     }
     
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
-                $data['featured_menu'] = $this->Cms->get_featured_menu();
+//                $data['featured_menu'] = $this->Cms->get_featured_menu();
 /*		echo "<pre>";
 		print_r($pageDetail);
 		echo "</pre>";
@@ -49,7 +51,7 @@ class Main extends CI_Controller {
 		print_r($data['galleryContent']);
 		echo "</pre>";*/
 		//die();
-		$this->load->view('fe/gallery.php',$data);     
+                $this->_renderView('gallery',$data);
     }
 
 	
