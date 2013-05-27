@@ -2,20 +2,16 @@
 <div class="left_box">
 <div class="left_box_title">Latest News</div>
 <div class="left_box_content">
+<?php foreach($news as $value):?>
 	<div class="news_pan">
-    <h6>May 11, 2013</h6>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+    <h6><?php echo $value->date;?></h6>
+    <p><a href="<?php echo site_url('main/news_details/'.$value->id);?>"><?php echo $value->title;?></a></p>
+	
     </div>
-	<div class="news_pan">
-    <h6>May 11, 2013</h6>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+<?php endforeach;?>	
+	<div style=" padding-left:230px;">
+	<a href="<?php echo site_url('main/news_list');?>">...more</a>
     </div>
-    <div class="news_pan">
-    <h6>May 11, 2013</h6>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-    <a href="#" class="more_link">...more</a>
-    </div>
-    
 </div>
 <div class="left_box_bottom"></div>
 </div>

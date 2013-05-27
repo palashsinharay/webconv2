@@ -18,8 +18,9 @@ class Main extends CI_Controller {
     public function _renderView($page,$data) {
                 
                 $data['featured_menu'] = $this->Cms->get_featured_menu();
+				$data['news'] = $this->Cms->get_news_list(1);
                 $this->load->view('fe/common/header.php',$data);
-		$this->load->view('fe/'.$page.'.php',$data);
+				$this->load->view('fe/'.$page.'.php',$data);
                 $this->load->view('fe/common/footer.php',$data);
     }
 
@@ -54,6 +55,58 @@ class Main extends CI_Controller {
                 $this->_renderView('gallery',$data);
     }
 
+    public function news_details($id)
+    {
+		$data['newsContent'] = $this->Cms->get_news_content($id);
+	    /*echo "<pre>";
+		print_r($data['newsContent']);
+		echo "</pre>";
+		die();*/
+        $this->_renderView('news_details',$data);
+		//return $data;
+    }
+    public function news_list()
+    {
+		$data['newslist'] = $this->Cms->get_news_list();
+/*		echo "<pre>";
+		print_r($data['recruitmentContent']);
+		echo "</pre>";
+		die();
+*/     $this->_renderView('news_list',$data);
+    }	
+
+	
+    public function recruitment()
+    {
+		$data['recruitmentContent'] = $this->Cms->get_recruitment_content_all();
+/*		echo "<pre>";
+		print_r($data['recruitmentContent']);
+		echo "</pre>";
+		die();
+*/     $this->_renderView('recruitment',$data);
+    }	
+	public function recruitment_details($id)
+    {
+		$data['recruitmentContent'] = $this->Cms->get_recruitment_content($id);
+	    /*echo "<pre>";
+		print_r($data['newsContent']);
+		echo "</pre>";
+		die();*/
+        $this->_renderView('recruitment_details',$data);
+		//return $data;
+    }
+
+// Tender List
+    public function tender_list()
+    {
+		
+    }	
+// Tender Detail	
+	public function recruitment_details($id)
+    {
+	}
+
+
 	
  // Listing pages for job listing , gallery , resource center ????   
 
@@ -61,5 +114,5 @@ class Main extends CI_Controller {
 
 }
  
-/* End of file admin.php */
-/* Location: ./application/controllers/admin.php */
+/* End of file main.php */
+/* Location: ./application/controllers/main.php */
