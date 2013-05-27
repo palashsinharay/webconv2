@@ -102,7 +102,7 @@ class Main extends CI_Controller {
 		
     }	
 // Tender Detail	
-	public function recruitment_details($id)
+	public function tender_details($id)
     {
 	}
 
