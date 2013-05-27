@@ -1,4 +1,4 @@
-<?php include ("common/header.php");?>
+<?php //include ("common/header.php");?>
 <div class="clear"></div>
 <!-- banner start -->
 <div class="banner">
@@ -113,4 +113,4 @@
 </div>  
 <!-- wrappr end -->
 <div class="clear"></div>
-<?php include("common/footer.php");?>
+<?php // include("common/footer.php");?>

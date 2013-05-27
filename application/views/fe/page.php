@@ -1,4 +1,4 @@
-<?php include ("common/header.php");?>
+<?php //include ("common/header.php");?>
 <?php 
 /*echo "<pre>";
 print_r($pageDetail);
@@ -56,4 +56,4 @@ echo "</pre>";*/
 </div>  
 <!-- wrappr end -->
 <div class="clear"></div>
-<?php include("common/footer.php");?>
+<?php //include("common/footer.php");?>

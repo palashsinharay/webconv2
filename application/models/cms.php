@@ -24,8 +24,7 @@ class Cms extends CI_Model {
 	}
 
 	//function get_page_content_front_end($PageUrl)
-	function get_page_content($id)
-	{
+	function get_page_content($id) {
 		
 		$query = $this->db->get_where($this->_table,array('id =' => $id));
 		//echo $this->db->last_query();
@@ -36,7 +35,24 @@ class Cms extends CI_Model {
 		echo "</pre>";*/
 		
 		return $this->result[0];
-	}	
+	}
+        
+        //function to get featured menu list
+        function get_featured_menu() {
+                $this->db->select('*');
+                $this->db->from($this->_table);
+                $this->db->join('featured_menu', 'featured_menu.id ='.$this->_table.'.id');
+                $this->db->where('featured_menu.status', 1); 
+
+                $query = $this->db->get();
+            
+		$this->result = $query->result();
+//		echo "<pre>";
+//		print_r($this->result);
+//		echo "</pre>";die();
+		
+		return $this->result;
+        }
 	
 
 

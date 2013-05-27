@@ -34,8 +34,8 @@ $(function() {
 <div class="navigaion_pan">
 
 <ul>
-<li><a href="<?php echo base_url();?>main/index" class="active">Home</a></li>
-<li><a href="<?php echo base_url();?>main/page/1">Who We Are</a></li>
+    <li><a href="<?php echo site_url('main/index');?>" class="active">Home</a></li>
+<li><a href="<?php echo site_url('main/page/1');?>">Who We Are</a></li>
 
 <li class="drop"><a href="<?php echo base_url();?>main/page/17">What We Do</a>
 <div class="drop_pan" style="width:160px;">

@@ -15,21 +15,31 @@ class Main extends CI_Controller {
 		$this->load->model('Cms');
  
     }
- 
+    public function _renderView($page,$data) {
+                $this->load->view('fe/common/header.php',$data);
+		$this->load->view('fe/'.$page.'.php',$data);
+                $this->load->view('fe/common/footer.php',$data);
+    }
+
+
+
+
     public function index($id = 1)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
-		$this->load->view('fe/index.php',$data);    
+                $data['featured_menu'] = $this->Cms->get_featured_menu();
+                $this->_renderView('index',$data);
     }
-
+    
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
+                $data['featured_menu'] = $this->Cms->get_featured_menu();
 /*		echo "<pre>";
 		print_r($pageDetail);
 		echo "</pre>";
 		die();
-*/		$this->load->view('fe/page.php',$data);     
+*/		$this->_renderView('page',$data);    
     }
 	
  // Listing pages for job listing , gallery , resource center ????   
