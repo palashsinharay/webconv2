@@ -11,6 +11,7 @@
 <li id="button3"><a href="#" title="">&nbsp;</a></li>
 <li id="button4"><a href="#" title="">&nbsp;</a></li>
 <li id="button5"><a href="#" title="">&nbsp;</a></li>
+<li id="button6"><a href="#" title="">&nbsp;</a></li>
 </ul>
 
 <!-- img_1 -->
@@ -33,6 +34,16 @@
 <img src="<?php echo site_url('images/img_1.png')?>" alt="" />
 </div>
 
+<!-- img_5 -->
+<div class="slides" id="image5">
+<img src="<?php echo site_url('images/img_5.png')?>" alt="" />
+</div>
+
+<!-- img_6 -->
+<div class="slides" id="image6">
+<img src="<?php echo site_url('images/img_6.png')?>" alt="" />
+</div>
+
 </div>
 
 </div>
@@ -50,11 +61,7 @@
 
 <div class="right_pan_area">
 <h2>About <span>WEBCON</span></h2>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+<?php echo $pageDetail->content;?>
 <a href="#" class="more_link">...more</a>
 
 <div class="clear"></div>

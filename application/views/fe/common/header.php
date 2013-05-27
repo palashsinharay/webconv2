@@ -34,10 +34,10 @@ $(function() {
 <div class="navigaion_pan">
 
 <ul>
-<li><a href="#" class="active">Home</a></li>
-<li><a href="#">Who We Ar</a></li>
+<li><a href="<?php echo base_url();?>main/index" class="active">Home</a></li>
+<li><a href="<?php echo base_url();?>main/page/1">Who We Are</a></li>
 
-<li class="drop"><a href="#">What We Do</a>
+<li class="drop"><a href="<?php echo base_url();?>main/page/17">What We Do</a>
 <div class="drop_pan" style="width:160px;">
 <ul>
 <li><a href="#">Skill Development Training</a></li>
@@ -49,7 +49,7 @@ $(function() {
 <li><a href="#">Recruitment</a></li>
 <li><a href="#">Photo Gallery</a></li>
 <li><a href="#">Resouce Centre</a></li>
-<li><a href="#">Contact Us</a></li>
+<li><a href="<?php echo base_url();?>main/page/19">Contact Us</a></li>
 </ul>
 
 
