@@ -32,12 +32,13 @@ a:hover
 		<a href='<?php echo site_url('examples/orders_management')?>'>Orders</a> |
 		<a href='<?php echo site_url('examples/products_management')?>'>Products</a> |
 		<a href='<?php echo site_url('examples/offices_management')?>'>Offices</a> | -->
-		<a href='<?php echo site_url('main/employees')?>'>Employees</a> |
-                <a href='<?php echo site_url('main/cms_page')?>'>CMS</a> |
-				<a href='<?php echo site_url('main/tender')?>'>Tender</a> |
-				<a href='<?php echo site_url('main/news')?>'>News</a> |
-				<a href='<?php echo site_url('main/job')?>'>Jobs</a> |
-				<a href='<?php echo site_url('main/media_gallery')?>'>Media Library</a> |
+		<a href='<?php echo site_url('admin/employees')?>'>Employees</a> |
+                <a href='<?php echo site_url('admin/cms_page')?>'>CMS</a> |
+				<a href='<?php echo site_url('admin/tender')?>'>Tender</a> |
+				<a href='<?php echo site_url('admin/news')?>'>News</a> |
+				<a href='<?php echo site_url('admin/job')?>'>Jobs</a> |
+				<a href='<?php echo site_url('admin/media_gallery')?>'>Media Library</a> |
+				<a href='<?php echo site_url('admin/featured_menu')?>'>Featured Menu</a> |
 <!--		<a href='<?php echo site_url('examples/film_management')?>'>Films</a> |-->
                 <a href='<?php echo site_url('auth/logout')?>'>logout</a>
 	</div>

@@ -360,3 +360,13 @@ $config['proxy_ips'] = '';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */
+
+
+/*********Customized from here***********/
+$config['images_url']    =    $config['base_url']."images/";
+
+$config['css_url']       =    $config['base_url']."css/";
+
+$config['js_url']        =    $config['base_url']."script/";
+/*********Customized from here***********/
+
