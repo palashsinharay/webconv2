@@ -82,25 +82,31 @@ class Admin extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('cms_page')
             ->set_subject('CMS PAGE')
-            ->columns('menutitle','content','date','pid','categories_id')
+
+            ->columns('menutitle','content','date','pid','categories_id','filename')
+            
             ->display_as('categories_id','category name')
             ->display_as('menutitle','Title')
             ->display_as('content','Content')
-            ->display_as('pid','parent id');
+            ->display_as('pid','parent id')
+            ->display_as('filename','Banner');
         
         
         //below code is for edit and add
-        $crud->fields('menutitle','content','categories_id');
+
+        $crud->fields('menutitle','content','categories_id','filename');
         $crud->required_fields('menutitle','content');
         
         $crud->set_relation('categories_id','categories','category_name');
+
         
         //below is validation
         //$crud->set_rules('lastName','last name nnn','numeric|required')
         //     ->set_rules('firstName','first name nnn','integer|required')
         //     ->set_rules('email','email nnn','valid_email|required');
         //below code is for file upload
-        //$crud->set_field_upload('file_url','assets/uploads/files');
+        $crud->set_field_upload('filename','assets/uploads/files');
+        $crud->required_fields('menutitle','content','filename');
         
         $output = $crud->render();
         $this->_example_output($output);

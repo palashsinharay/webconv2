@@ -12,18 +12,27 @@ class Main extends CI_Controller {
         /* ------------------ */ 
  
         $this->load->library('grocery_CRUD');
+		$this->load->model('Cms');
  
     }
  
-    public function index()
+    public function index($id = 1)
     {
-        //echo "<h1>Welcome to the world of Codeigniter</h1>";//Just an example to ensure that we get into the function
-        //die();
-		$this->load->view('fe/index.php');    
-		
-		
+		$data['pageDetail'] = $this->Cms->get_page_content($id);
+		$this->load->view('fe/index.php',$data);    
     }
-    
+
+    public function page($id)
+    {
+		$data['pageDetail'] = $this->Cms->get_page_content($id);
+/*		echo "<pre>";
+		print_r($pageDetail);
+		echo "</pre>";
+		die();
+*/		$this->load->view('fe/page.php',$data);     
+    }
+	
+ // Listing pages for job listing , gallery , resource center ????   
 
 
 
