@@ -46,7 +46,7 @@ class Main extends CI_Controller {
                 case 'tender':$this->tender_list();
 
                     break;
-                case 'recruitment':$this->recruitment();
+                case 'job':$this->recruitment();
 
                     break;
 

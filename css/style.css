@@ -16,7 +16,7 @@ body{font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:20px;
 /* general */
 .clear{clear:both; font-size:0px; line-height:0; height:0px;}
 
-a img{border:0;}
+a img{border:0; outline:none;}
 a{text-decoration:none; outline:0; cursor:pointer; color:#137c83; font-weight:normal;}
 a:hover{text-decoration:underline;}
 
@@ -71,7 +71,15 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 .content_area th {text-align:center; font-size:11px; font-weight:bold; background:#ccc; padding:2px; vertical-align:middle;}
 .content_area td {text-align:center; font-size:12px; font-weight:normal; padding:2px; vertical-align:top;}
 .content_area td.desrp {text-align:left;}
-
+.content_area td.title {text-align:left; color:#f60; font-weight:bold;}
+.content_area td li {background:url(../images/arrow_right.png) 0 4px no-repeat; padding-left:15px; margin-bottom:5px;}
+.content_area td .column { float:left; padding:10px 5px; background:#f2f2f2; border:1px dashed #ccc;}
+.content_area td .column h5 {font-size:14px; font-weight:bold;}
+.content_area td .column h6 {font-size:12px; font-weight:bold;}
+.content_area td .column img {margin:5px auto;}
+.content_area td .four {width:21%; margin:5px 12px 5px;}
+.content_area td .three {width:30%; margin:5px 10px 5px;}
+.content_area td .two {width:45%; margin:5px 15px 5px;}
 
 .left_pan_area {width:320px; float:left;}
 .right_pan_area {width:648px; float:right; padding-right: 10px;}
