@@ -146,10 +146,13 @@ class Cms extends CI_Model {
         }
 	
         //function for getting gallery page content
-	function get_resource_center_list_all()
+	function get_resource_center_list_all($limit,$type)
 	{
 		
-		$query = $this->db->get_where($this->_resource_center,array());
+		$query = $this->db->where('type', $type);
+		$query = $this->db->order_by("date", "desc"); 
+		$query = $this->db->get($this->_resource_center, $limit);
+		
 		//echo $this->db->last_query();
 		//die();
 		$this->result = $query->result();
