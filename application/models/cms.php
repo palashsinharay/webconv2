@@ -9,6 +9,8 @@ class Cms extends CI_Model {
 	public $_newstable = 'news';
 	public $_job = 'job';
         public $_tender = 'tender';
+	public $_resource_center = 'resource_center';
+
 	public $result = null;
 
 	function __construct()
@@ -143,7 +145,21 @@ class Cms extends CI_Model {
 		return $this->result;
         }
 	
-
+        //function for getting gallery page content
+	function get_resource_center_list_all()
+	{
+		
+		$query = $this->db->get_where($this->_resource_center,array());
+		//echo $this->db->last_query();
+		//die();
+		$this->result = $query->result();
+/*		echo "<pre>";
+		print_r($this->result);
+		echo "</pre>";
+		die();
+*/		
+		return $this->result;
+	}
 
 	}	
 

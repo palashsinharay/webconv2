@@ -267,6 +267,39 @@ class Admin extends CI_Controller {
 
 
 
+    function resource_center() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('resource_center')
+        ->set_subject('Resource Center')
+        ->columns('title','type','filename','date','status');
+        //->display_as('menutitle','Title')
+       // ->display_as('content','Content')
+       // ->display_as('pid','parent id');
+
+
+    //below code is for edit and add
+    $crud->fields('title','type','date','filename','status');
+    //$crud->required_fields('title','email',);
+
+
+
+    //below is validation
+            $crud->set_rules('title','title ','required')
+         ->set_rules('date','date','required')
+         ->set_rules('type','type ','required')
+         ->set_rules('filename','filename','required');
+    //below code is for file upload
+    $crud->set_field_upload('filename','assets/uploads/files');
+
+    $output = $crud->render();
+    $this->_example_output($output);
+}
+
+
+
 }
  
 /* End of file admin.php */
