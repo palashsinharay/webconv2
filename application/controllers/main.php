@@ -19,6 +19,7 @@ class Main extends CI_Controller {
                 
                 $data['featured_menu'] = $this->Cms->get_featured_menu();
 				$data['news'] = $this->Cms->get_news_list(1);
+				$data['whoweare_links']=$this->Cms->get_page_basedonCatId('aboutus');
                 $this->load->view('fe/common/header.php',$data);
 				$this->load->view('fe/'.$page.'.php',$data);
                 $this->load->view('fe/common/footer.php',$data);
@@ -30,6 +31,7 @@ class Main extends CI_Controller {
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
 //                $data['featured_menu'] = $this->Cms->get_featured_menu();
+         $data['lowerSlider'] = $this->Cms->get_lowerSlider_content();
                 $this->_renderView('index',$data);
     }
     
@@ -136,9 +138,13 @@ class Main extends CI_Controller {
     }
     
 //for categories
-    public function categories($param) {
+    public function categories($catName) {
         
-       $data[] =  $this->Cms->get_page_basedonCatId();
+       $data['categories_items'] =  $this->Cms->get_page_basedonCatId($catName);
+	  /* echo "<pre>";
+	   print_r($data['categories_items']);
+	   echo "</pre>";
+		die();	*/
        $this->_renderView('categories',$data);
     }
 

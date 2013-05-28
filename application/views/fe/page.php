@@ -25,7 +25,7 @@ echo "</pre>";*/
 
 <?php echo $pageDetail->content;?>
 
-<a href="#" class="more_link">...more</a>
+
 
 
 

@@ -73,15 +73,17 @@
     <button class="prev"></button>
 	<button class="next"></button>    
     <ul>
-        <li><img src="<?php echo site_url('images/exprt_1.png')?>" alt="" ><div class="caption">Market Survey / Research / Study</div></li>
-        <li><img src="<?php echo site_url('images/exprt_2.png')?>" alt="" ><div class="caption">Infrastructure Planning, Development &amp; Upgradation </div></li>
-        <li><img src="<?php echo site_url('images/exprt_3.png')?>" alt="" ><div class="caption">Detailed Design &amp; engineering / Project Monitoring &amp; Supervision </div></li>
-        <li><img src="<?php echo site_url('images/exprt_1.png')?>" alt="" ><div class="caption">Evaluation &amp; Impact Assessment Study / Socio-Economic Survey</div></li>
-        <li><img src="<?php echo site_url('images/exprt_2.png')?>" alt="" ><div class="caption">Micro enterprise Development</div></li>
-        <li><img src="<?php echo site_url('images/exprt_3.png')?>" alt="" ><div class="caption">Skill Development Training Programme</div></li>
-        <li><img src="<?php echo site_url('images/exprt_1.png')?>" alt="" ><div class="caption">Implementing CSR Initiative</div></li>
-        <li><img src="<?php echo site_url('images/exprt_2.png')?>" alt="" ><div class="caption">Entrepreneurship Nurturing Cell</div></li>
-        <li><img src="<?php echo site_url('images/exprt_3.png')?>" alt="" ><div class="caption">Cluster Development Programme</div></li>
+	<?php foreach($lowerSlider as $values):?>
+        <li><a href="<?php echo site_url('main/page/'.$values->id); ?>"><img src="<?php echo site_url('assets/uploads/files/'.$values->filename);?>" alt="" ></a><div class="caption"><?php echo $values->menutitle;?></div></li>
+		<?php endforeach;?>
+       <!-- <li><img src="<?php /// echo site_url('images/exprt_2.png')?>" alt="" ><div class="caption">Infrastructure Planning, Development &amp; Upgradation </div></li>
+        <li><img src="<?php //echo site_url('images/exprt_3.png')?>" alt="" ><div class="caption">Detailed Design &amp; engineering / Project Monitoring &amp; Supervision </div></li>
+        <li><img src="<?php //echo site_url('images/exprt_1.png')?>" alt="" ><div class="caption">Evaluation &amp; Impact Assessment Study / Socio-Economic Survey</div></li>
+        <li><img src="<?php //echo site_url('images/exprt_2.png')?>" alt="" ><div class="caption">Micro enterprise Development</div></li>
+        <li><img src="<?php //echo site_url('images/exprt_3.png')?>" alt="" ><div class="caption">Skill Development Training Programme</div></li>
+        <li><img src="<?php //echo site_url('images/exprt_1.png')?>" alt="" ><div class="caption">Implementing CSR Initiative</div></li>
+        <li><img src="<?php //echo site_url('images/exprt_2.png')?>" alt="" ><div class="caption">Entrepreneurship Nurturing Cell</div></li>
+        <li><img src="<?php //echo site_url('images/exprt_3.png')?>" alt="" ><div class="caption">Cluster Development Programme</div></li>-->
     </ul>
 </div>
 

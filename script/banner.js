@@ -66,12 +66,24 @@ function button5_click(event)
     $("#image5").animate({"opacity":1},3000, "linear", null);
      $("#button5").addClass("active");
      clearTimeout(timer);
-     timer = setTimeout(eval("button1_click"),"6000");
+     timer = setTimeout(eval("button6_click"),"6000");
     $("#image5").animate({"opacity":1},3000, "linear", null);
 }
 
 
-
+function button6_click(event)
+{
+     $(".slides").css("visibility","hidden");
+     $("#image6").css("visibility","visible");
+     $("#image6").css("opacity","0");
+    $("#image6").animate({"opacity":1},3000, "linear", null);
+     $("ul.buttons li").removeClass("active");
+    $("#image6").animate({"opacity":1},3000, "linear", null);
+     $("#button6").addClass("active");
+     clearTimeout(timer);
+     timer = setTimeout(eval("button1_click"),"6000");
+    $("#image6").animate({"opacity":1},3000, "linear", null);
+}
 
 function OnLoad(event)
 {
@@ -88,6 +100,8 @@ $('#button3').bind('click', button3_click);
 $('#button4').bind('click', button4_click);
 
 $('#button5').bind('click', button5_click);
+
+$('#button6').bind('click', button6_click);
 
 OnLoad();
 

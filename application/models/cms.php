@@ -8,9 +8,10 @@ class Cms extends CI_Model {
 	public $_meduiatable = 'media_gallery';
 	public $_newstable = 'news';
 	public $_job = 'job';
-        public $_tender = 'tender';
+    public $_tender = 'tender';
 	public $_resource_center = 'resource_center';
-
+	public $_categories = 'categories';
+	public $_lowerSlider = 'lower_slider';
 	public $result = null;
 
 	function __construct()
@@ -164,9 +165,60 @@ class Cms extends CI_Model {
 		return $this->result;
 	}
         
-        function get_page_basedonCatId($cat_id) {
-           //get list of all page based on cat_id 
+        function get_page_basedonCatId($catName) {
+ 		
+		$query = $this->db->where('category_name', $catName);
+		//$query = $this->db->order_by("date", "desc"); 
+		$query = $this->db->get($this->_categories);
+		
+		//echo $this->db->last_query();
+		//die();
+		$this->result = $query->result();       
+		$cat_id=$this->result[0]->categories_id;
+		/*echo "<pre>";
+		print_r($this->result);
+		echo "</pre>";
+		die();*/
+				
+		
+		   //get list of all page based on cat_id 
+		$query = $this->db->where('categories_id', $cat_id);
+		//$query = $this->db->order_by("date", "desc"); 
+		$query = $this->db->get($this->_table);
+		
+		//echo $this->db->last_query();
+		//die();
+		$this->result = $query->result();
+	/*	echo "<pre>";
+		print_r($this->result);
+		echo "</pre>";
+		die();*/
+		
+		return $this->result;
+
+		   
         }
+		
+		public function get_lowerSlider_content(){
+		
+		$query = $this->db->get($this->_lowerSlider);
+		
+		$this->result = $query->result();
+		
+		
+		foreach($this->result as $values){
+		 $data[] = $this->get_page_content($values->id);
+		}
+		$this->result = $data;
+		
+		/*echo "<pre>";
+		print_r($this->result);
+		echo "</pre>";
+		die();*/
+		return $this->result;
+		
+		
+		}
         
         ############# contact us email send function Start #############
         public function email_send()

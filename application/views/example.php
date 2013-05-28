@@ -40,6 +40,7 @@ a:hover
 				<a href='<?php echo site_url('admin/media_gallery')?>'>Media Library</a> |
 				<a href='<?php echo site_url('admin/resource_center')?>'>Resource Center</a> |
 				<a href='<?php echo site_url('admin/featured_menu')?>'>Featured Menu</a> |
+				<a href='<?php echo site_url('admin/lower_slider')?>'>Lower slider</a> |
 <!--		<a href='<?php echo site_url('examples/film_management')?>'>Films</a> |-->
                 <a href='<?php echo site_url('auth/logout')?>'>logout</a>
 	</div>

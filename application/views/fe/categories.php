@@ -7,7 +7,7 @@ echo "</pre>";*/
 <div class="clear"></div>
 <!-- banner_inner start -->
 <div class="banner_inner">
-  <img src="<?php echo site_url('assets/uploads/files/')."/".$pageDetail->filename?>" alt="" />
+    <img src="<?php echo site_url('images/sub/phato-g.jpg')?>" alt="" />
  </div>
 <!-- banner_inner end -->
 
@@ -22,11 +22,16 @@ echo "</pre>";*/
 </div>
 
 <div class="right_pan_area">
+<ul>
+<?php 
+	foreach($categories_items as $values):
+?>
+<li>
+<a href="<?php echo site_url('main/page/'.$values->id);?>" class="more_link"><?php echo $values->menutitle;?></a>
+</li>
+<?php endforeach;?>
 
-<?php echo $pageDetail->content;?>
-
-<a href="#" class="more_link">...more</a>
-
+</ul>
 
 
 
