@@ -180,14 +180,14 @@ class Admin extends CI_Controller {
     $crud->set_theme('datatables');
     $crud->set_table('job')
         ->set_subject('Jobs PAGE')
-        ->columns('title','email','desc','filename','post_date');
-        //->display_as('menutitle','Title')
-       // ->display_as('content','Content')
-       // ->display_as('pid','parent id');
+        ->columns('title','job_code','job_position','qualification_other_details','email','desc','filename','post_date')
+        ->display_as('job_code','Job Code')
+        ->display_as('job_position','Job Position')
+        ->display_as('qualification_other_details','Qualification And Other Details');
 
 
     //below code is for edit and add
-    $crud->fields('title','email','desc','filename','post_date');
+    $crud->fields('title','job_code','job_position','qualification_other_details','email','desc','filename','post_date');
     //$crud->required_fields('title','email',);
 
 
@@ -195,8 +195,11 @@ class Admin extends CI_Controller {
     //below is validation
             $crud->set_rules('title','title ','required')
          ->set_rules('email','email','valid_email|required')
+		 ->set_rules('job_code','Job Code','required')
+		 ->set_rules('job_position','Job Position','required')
+		 ->set_rules('qualification_other_details','Qualification And Other Details','required')
          ->set_rules('desc','description ','required')
-                     ->set_rules('post_date','Post Date ','required');
+         ->set_rules('post_date','Post Date ','required');
     //below code is for file upload
     $crud->set_field_upload('filename','assets/uploads/files');
 
