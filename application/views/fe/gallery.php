@@ -4,7 +4,8 @@
 <div class="clear"></div>
 <!-- banner_inner start -->
 <div class="banner_inner">
-  <img src="<?php echo site_url('images/sub/phato-g.jpg')?>" alt="" /></div>
+  <img src="<?php echo site_url('images/sub/phato-g.jpg')?>" alt="" />
+</div>
 <!-- banner_inner end -->
 
 <!-- content area start -->

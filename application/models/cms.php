@@ -8,6 +8,7 @@ class Cms extends CI_Model {
 	public $_meduiatable = 'media_gallery';
 	public $_newstable = 'news';
 	public $_job = 'job';
+        public $_tender = 'tender';
 	public $result = null;
 
 	function __construct()
@@ -128,6 +129,19 @@ class Cms extends CI_Model {
 		return $this->result[0];
 
 	}
+        function get_tender_list(){
+            
+            $query = $this->db->get_where($this->_tender,array());
+		//echo $this->db->last_query();
+		//die();
+		$this->result = $query->result();
+/*		echo "<pre>";
+		print_r($this->result);
+		echo "</pre>";
+		die();
+*/		
+		return $this->result;
+        }
 	
 
 

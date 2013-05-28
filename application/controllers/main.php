@@ -37,12 +37,33 @@ class Main extends CI_Controller {
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
-//                $data['featured_menu'] = $this->Cms->get_featured_menu();
-/*		echo "<pre>";
-		print_r($pageDetail);
-		echo "</pre>";
-		die();
-*/		$this->_renderView('page',$data);    
+
+//		echo "<pre>";
+//              print_r($data['pageDetail']);
+//		echo "</pre>";
+//		die();
+        switch ($data['pageDetail']->type) {
+            case 'tender':$this->tender_list();
+                          
+                break;
+            case 'recruitment':$this->recruitment();
+                          
+                break;
+
+            default:
+              $this->_renderView('page',$data);
+                break;
+        }
+                
+                
+//                if($data['pageDetail']->type == 'tender'){
+//                   $data['tenderList'] = $this->tender_list();
+//                   $this->_renderView('tender_list',$data); 
+//                } else{
+//                    
+//                }
+                
+		    
     }
 
     public function gallery()
@@ -99,7 +120,12 @@ class Main extends CI_Controller {
 // Tender List
     public function tender_list()
     {
-		
+        $data['tenderList'] = $this->Cms->get_tender_list();
+//                echo "<pre>";
+//		print_r($data['tenderList']);
+//		echo "</pre>";
+//		die();
+	$this->_renderView('tender_list',$data);	
     }	
 // Tender Detail	
 	public function tender_details($id)

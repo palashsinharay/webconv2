@@ -83,9 +83,9 @@ class Admin extends CI_Controller {
         $crud->set_table('cms_page')
             ->set_subject('CMS PAGE')
 
-            ->columns('menutitle','content','date','pid','categories_id','filename')
+            ->columns('menutitle','content','date','pid','type','filename')
             
-            ->display_as('categories_id','category name')
+            ->display_as('type','category type')
             ->display_as('menutitle','Title')
             ->display_as('content','Content')
             ->display_as('pid','parent id')
@@ -94,10 +94,10 @@ class Admin extends CI_Controller {
         
         //below code is for edit and add
 
-        $crud->fields('menutitle','content','categories_id','filename');
+        $crud->fields('menutitle','content','type','filename');
         $crud->required_fields('menutitle','content');
         
-        $crud->set_relation('categories_id','categories','category_name');
+        //$crud->set_relation('categories_id','categories','category_name');
 
         
         //below is validation
