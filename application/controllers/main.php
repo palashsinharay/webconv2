@@ -24,9 +24,8 @@ class Main extends CI_Controller {
                 $this->load->view('fe/common/footer.php',$data);
     }
 
-
-
-
+    
+    
     public function index($id = 1)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
@@ -77,6 +76,7 @@ class Main extends CI_Controller {
         $this->_renderView('news_details',$data);
 		//return $data;
     }
+    
     public function news_list()
     {
 		$data['newslist'] = $this->Cms->get_news_list();
@@ -97,7 +97,8 @@ class Main extends CI_Controller {
 		die();
 */     $this->_renderView('recruitment',$data);
     }	
-	public function recruitment_details($id)
+    
+    public function recruitment_details($id)
     {
 		$data['recruitmentContent'] = $this->Cms->get_recruitment_content($id);
 	    /*echo "<pre>";
@@ -119,22 +120,32 @@ class Main extends CI_Controller {
 	$this->_renderView('tender_list',$data);	
     }	
 // Tender Detail	
-	public function tender_details($id)
+    public function tender_details($id)
     {
-	}
+	
+            
+    }
 
     public function resource_center_list()
-	{
+    {
 	$data['resource_center_list_Areport'] = $this->Cms->get_resource_center_list_all(3,'Annual Report');
 	$data['resource_center_list_newsletter'] = $this->Cms->get_resource_center_list_all(4,'News Letter');
 	$data['resource_center_list_brochure'] = $this->Cms->get_resource_center_list_all(2,'Brochure');
 	
 	$this->_renderView('resource_center_list',$data);
-	}
+    }
+    
+//for categories
+    public function categories($param) {
+        
+       $data[] =  $this->Cms->get_page_basedonCatId();
+       $this->_renderView('categories',$data);
+    }
 
 
-	
- // Listing pages for job listing , gallery , resource center ????   
+
+
+    // Listing pages for job listing , gallery , resource center ????   
 
 
 
