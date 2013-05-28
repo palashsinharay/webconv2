@@ -42,28 +42,19 @@ class Main extends CI_Controller {
 //              print_r($data['pageDetail']);
 //		echo "</pre>";
 //		die();
-        switch ($data['pageDetail']->type) {
-            case 'tender':$this->tender_list();
-                          
-                break;
-            case 'recruitment':$this->recruitment();
-                          
-                break;
+            switch ($data['pageDetail']->type) {
+                case 'tender':$this->tender_list();
 
-            default:
-              $this->_renderView('page',$data);
-                break;
-        }
-                
-                
-//                if($data['pageDetail']->type == 'tender'){
-//                   $data['tenderList'] = $this->tender_list();
-//                   $this->_renderView('tender_list',$data); 
-//                } else{
-//                    
-//                }
-                
-		    
+                    break;
+                case 'recruitment':$this->recruitment();
+
+                    break;
+
+                default:
+                  $this->_renderView('page',$data);
+                    break;
+            }
+ 	    
     }
 
     public function gallery()
