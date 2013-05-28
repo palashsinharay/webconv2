@@ -1,6 +1,3 @@
-<?php //include ("common/header.php");
-?>
-
 <div class="clear"></div>
 <!-- banner_inner start -->
 <div class="banner_inner">
@@ -10,29 +7,31 @@
 <!-- content area start -->
 
 <div class="content_area">
-<?php include("common/sidebar_upper.php");?>
-<?php include("common/sidebar_lower.php");?>
-</div>
 
-<div class="right_pan_area">
-<h2>Recruitment</h2>
+<h2>Current <span>Job Openings</span></h2>
 
-<div id="recruitment">
-      <ul>
-	  <?php foreach ($recruitmentContent as $row):?>	
-		    <li><a href="<?php echo site_url('main/recruitment_details/'.$row->id);?>"><strong><?php echo $row->title;?></strong></a></li>
-			<li> <strong><?php echo $row->post_date;?></strong> </li>
-			<li> <?php echo $row->desc;?> </li>
-			<li><a href="<?php echo site_url('assets/uploads/files/')."/".$row->filename;?>" title="description_1"><?php echo $row->filename;?>  </a></li>
-			<hr>
-	<?php endforeach;?>
-    
-      </ul>
-    </div>
+<table cellpadding="0" cellspacing="2">
+<thead>
+<tr>
+<th width="20%">Job Code</th>
+<th width="20%">Job Position</th>
+<th width="50%">Qualification &amp; Other Details</th>
+<th colspan="3">Action</th>
+</tr>
+</thead>
 
-<div class="clear"></div>
-
-</div>
+<tbody>
+<?php foreach ($recruitmentContent as $row):?>	
+<tr>
+<td><strong><?php echo $row->job_code;?></strong></td>
+<td><?php echo $row->job_position;?></td>
+<td class="desrp"><?php echo $row->qualification_other_details;?></td>
+<td width="5%"><a href="<?php echo site_url('main/recruitment_details/'.$row->id);?>"><img src="images/detail.png" alt="View Detail" /></a></td>
+<td width="5%"><a href="#"><img src="images/app.png" alt="Apply" /></a></td>
+</tr>
+<?php endforeach;?>
+</tbody>
+</table>
 
 
 
@@ -57,4 +56,3 @@
 <!-- wrappr end -->
 <div class="clear"></div>
 <!-- Footer start -->
-<?php //include("common/footer.php");?>
