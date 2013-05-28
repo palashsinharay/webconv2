@@ -106,6 +106,15 @@ class Main extends CI_Controller {
     {
 	}
 
+    public function resource_center_list()
+    {
+		$data['resource_center_list'] = $this->Cms->get_resource_center_list_all();
+/*		echo "<pre>";
+		print_r($data['recruitmentContent']);
+		echo "</pre>";
+		die();
+*/     $this->_renderView('resource_center_list',$data);
+    }
 
 	
  // Listing pages for job listing , gallery , resource center ????   

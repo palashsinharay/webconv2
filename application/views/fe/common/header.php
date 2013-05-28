@@ -56,7 +56,7 @@ $(function() {
 
 <li><a href="<?php echo site_url('main/recruitment')?>">Recruitment</a></li>
 <li><a href="<?php echo site_url('main/gallery')?>">Photo Gallery</a></li>
-<li><a href="#">Resouce Centre</a></li>
+<li><a href="<?php echo site_url('main/resource_center_list')?>">Resouce Centre</a></li>
 <li><a href="<?php echo site_url('main/page/19');?>">Contact Us</a></li>
 </ul>
 
