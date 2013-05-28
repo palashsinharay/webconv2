@@ -164,6 +164,10 @@ class Cms extends CI_Model {
 		return $this->result;
 	}
         
+        function get_page_basedonCatId($cat_id) {
+           //get list of all page based on cat_id 
+        }
+        
         ############# contact us email send function Start #############
         public function email_send()
         {
