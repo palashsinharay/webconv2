@@ -32,7 +32,7 @@ a:hover
 		<a href='<?php echo site_url('examples/orders_management')?>'>Orders</a> |
 		<a href='<?php echo site_url('examples/products_management')?>'>Products</a> |
 		<a href='<?php echo site_url('examples/offices_management')?>'>Offices</a> | -->
-		<a href='<?php echo site_url('admin/employees')?>'>Employees</a> |
+		
                 <a href='<?php echo site_url('admin/cms_page')?>'>CMS</a> |
 				<a href='<?php echo site_url('admin/tender')?>'>Tender</a> |
 				<a href='<?php echo site_url('admin/news')?>'>News</a> |
