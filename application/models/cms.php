@@ -199,26 +199,29 @@ class Cms extends CI_Model {
 		   
         }
 		
-		public function get_lowerSlider_content(){
-		
-		$query = $this->db->get($this->_lowerSlider);
-		
-		$this->result = $query->result();
-		
-		
-		foreach($this->result as $values){
-		 $data[] = $this->get_page_content($values->id);
-		}
-		$this->result = $data;
-		
-		/*echo "<pre>";
-		print_r($this->result);
-		echo "</pre>";
-		die();*/
-		return $this->result;
-		
-		
-		}
+        public function get_lowerSlider_content(){
+
+        $query = $this->db->get($this->_lowerSlider);
+
+        $this->result = $query->result();
+
+
+        foreach($this->result as $values){
+         $object_cms = $this->get_page_content($values->id);
+         $object_cms->image = $values->image;
+         $data[] = $object_cms;
+   
+        }
+        $this->result = $data;
+
+//        echo "<pre>";
+//        print_r($this->result);
+//        echo "</pre>";
+//        die();
+        return $this->result;
+
+
+        }
         
         ############# contact us email send function Start #############
         public function email_send()

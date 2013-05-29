@@ -312,7 +312,7 @@ class Admin extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('lower_slider')
             ->set_subject('Featured content for bottom slider')
-            ->columns('slider_id','id')
+            ->columns('slider_id','id','image')
             ->display_as('slider_id','featured slider id') 
             ->display_as('id','page title');
             
@@ -330,7 +330,7 @@ class Admin extends CI_Controller {
         //     ->set_rules('firstName','first name nnn','integer|required')
         //     ->set_rules('email','email nnn','valid_email|required');
         //below code is for file upload
-       // $crud->set_field_upload('icon','assets/uploads/files');
+        $crud->set_field_upload('image','assets/uploads/files');
         
         $output = $crud->render();
         $this->_example_output($output);
