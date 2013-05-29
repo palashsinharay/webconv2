@@ -1,3 +1,9 @@
+<?php 
+/*echo "<pre>";
+print_r($contact_us_data);
+echo "</pre>";*/
+
+?>
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -108,8 +114,9 @@ function validateEmail(user_email){
 <!-- content area start -->
 
 <div class="content_area"> 
+<?php echo $contact_us_data->content; ?>
 
-<h2>Contact <span>Us</span></h2>
+<!--<h2>Contact <span>Us</span></h2>
 
 <table cellpadding="0" cellspacing="10" class="contact_tbl">
 <tr>
@@ -228,7 +235,7 @@ function validateEmail(user_email){
 </tr>
 
 </table>
-
+-->
 
 <div class="clear"></div>
 </div>

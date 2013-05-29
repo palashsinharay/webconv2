@@ -137,7 +137,7 @@ class Main extends CI_Controller {
 	public function contact_us()
     {
 				
-				$data['contact_us_data']='';
+				$data['contact_us_data']=$this->Cms->get_page_content(19);
 		        $this->_renderViewContact('contact_us',$data);
     }
  	
