@@ -105,6 +105,12 @@ class Main extends CI_Controller {
                 $this->_renderView('recruitment_details',$data);
 		
     }
+    public function recruitment_apply($id)
+    {
+		$data['recruitmentContent'] = $this->Cms->get_recruitment_content($id);
+                $this->_renderView('recruitment_apply',$data);
+		
+    }	
 
 // Tender List
     public function tender_list()
