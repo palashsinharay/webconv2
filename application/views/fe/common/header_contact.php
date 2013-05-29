@@ -12,20 +12,40 @@
 <script type="text/javascript" src="<?php echo site_url('script/jcarousellite_1.0.1.min.js')?>"></script>
 <script type="text/javascript" src="<?php echo site_url('script/jquery.easing.min.js')?>"></script>
 <script type="text/javascript" src="<?php echo site_url('script/jquery.lightbox-0.4.js')?>"></script>
-
+<script type="text/javascript" src="<?php echo site_url('script/jquery-1.6.4.min.js')?>"></script>
 <script type="text/javascript">
-$(function() {
-    $(".carouel_area").jCarouselLite({
-        btnNext: ".next",
-        btnPrev: ".prev"
-    });
-});
+        $(document).ready(function () {
+            $('a.login-window').click(function () {
+                //Getting the variable's value from a link 
+                var loginBox = $(this).attr('href');
 
-</script>
-<script type="text/javascript">
-    $(function() {
-        $('#gallery a').lightBox();
-    });
+                //Fade in the Popup
+                $(loginBox).fadeIn(300);
+
+                //Set the center alignment padding + border see css style
+                var popMargTop = ($(loginBox).height() + 24) / 2;
+                var popMargLeft = ($(loginBox).width() + 24) / 2;
+
+                $(loginBox).css({
+                    'margin-top': -popMargTop,
+                    'margin-left': -popMargLeft
+                });
+
+                // Add the mask to body
+                $('body').append('<div id="mask"></div>');
+                $('#mask').fadeIn(300);
+
+                return false;
+            });
+
+            // When clicking on the button close or the mask layer the popup closed
+            $('a.close, #mask').live('click', function () {
+                $('#mask , .login-popup').fadeOut(300, function () {
+                    $('#mask').remove();
+                });
+                return false;
+            });
+        });
 </script>
 
 </head>
