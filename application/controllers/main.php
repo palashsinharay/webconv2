@@ -12,12 +12,12 @@ class Main extends CI_Controller {
         /* ------------------ */ 
  
         $this->load->library('grocery_CRUD');
-		$this->load->library('email');
-		$config['protocol'] = 'sendmail';
-		$config['charset'] = 'utf-8';
-		$config['wordwrap'] = TRUE;
-		$config['mailtype'] = 'html';
-		$this->email->initialize($this->config);
+		//$this->load->library('email');
+		//$config['protocol'] = 'sendmail';
+		//$config['charset'] = 'utf-8';
+		//$config['wordwrap'] = TRUE;
+		//$config['mailtype'] = 'html';
+		//$this->email->initialize($this->config);
 
 		$this->load->model('Cms');
  
@@ -137,7 +137,7 @@ class Main extends CI_Controller {
 	public function contact_us()
     {
 				
-				$data['contact_us_data']='';
+				$data['contact_us_data']=$this->Cms->get_page_content(19);
 		        $this->_renderViewContact('contact_us',$data);
     }
  	
@@ -174,22 +174,29 @@ class Main extends CI_Controller {
 			   else
 			   {
 					// ------------------ email send code start ------------------ //
-					$message="
-					<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 
-					'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
-					<html xmlns='http://www.w3.org/1999/xhtml'>
+				
+					$message='
+					<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+					"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+					<html xmlns="http://www.w3.org/1999/xhtml">
 					<head></head>
 					<body>
 					<table>
-					<tr><td>Name:</td><td>" .  $posted['full_name']. "</td></tr>
-					<tr><td>Email:</td><td>" . $posted['email'] . "</td></tr>
-					<tr><td>Message:</td><td>" . nl2br($posted['comment']) . "</td></tr>
+					<tr><td>Name:</td><td>' .  $posted['full_name'].'</td></tr>
+					<tr><td>Email:</td><td>' . $posted["email"] . '</td></tr>
+					<tr><td>Mobile:</td><td>' . $posted["mob_no"] . '</td></tr>
+					<tr><td>Address:</td><td>' . $posted["addr"] . '</td></tr>
+					<tr><td>State:</td><td>' . $posted["state"] . '</td></tr>
+					<tr><td>Message:</td><td>' . nl2br($posted["comment"]) . '</td></tr>
 					</table>
 					</body>
 					</html>
-					";
+					';
 					
                                         
+										$this->load->library( 'email' );
+										$email_setting  = array('mailtype'=>'html');
+										$this->email->initialize($email_setting);
 										$email_to    = 'siddharth@satyajittech.com';
                                         $email_from  =  $posted["email"];
                                         $this->email->from($email_from, 'WEBCON');
