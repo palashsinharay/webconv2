@@ -191,7 +191,7 @@ class Admin extends CI_Controller {
     $crud->set_theme('datatables');
     $crud->set_table('job')
         ->set_subject('Jobs PAGE')
-        ->columns('title','job_code','job_position','qualification_other_details','email','desc','filename','post_date','salary','vacancies','location')
+        ->columns('title','job_code','job_position','email','filename','post_date','salary','vacancies','location')
         ->display_as('job_code','Job Code')
         ->display_as('job_position','Job Position')
         ->display_as('qualification_other_details','Qualification And Other Details');
