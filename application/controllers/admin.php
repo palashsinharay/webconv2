@@ -16,8 +16,7 @@ class Admin extends CI_Controller {
     }
  
     public function index() {
-        echo "<h1>Welcome to the world of Codeigniter</h1>";//Just an example to ensure that we get into the function
-        die();
+        redirect('auth', 'refresh');
     }
     
     function _example_output($output = null) {
@@ -269,8 +268,6 @@ class Admin extends CI_Controller {
         $this->_example_output($output);
     }
 
-
-
     function resource_center() {
     $crud = new grocery_CRUD();
 
@@ -301,9 +298,6 @@ class Admin extends CI_Controller {
     $output = $crud->render();
     $this->_example_output($output);
 }
-
-
-
 
     function lower_slider() {
      $crud = new grocery_CRUD();
