@@ -4,23 +4,35 @@ class Admin extends CI_Controller {
  
     function __construct()
     {
+        
         parent::__construct();
  
         /* Standard Libraries of codeigniter are required */
         $this->load->database();
         $this->load->helper('url');
         /* ------------------ */ 
- 
+        $this->load->library('Ion_auth');
         $this->load->library('grocery_CRUD');
+        
+        
+        
  
     }
  
     public function index() {
-        redirect('auth', 'refresh');
+        
+                   $this->cms_page(); 
+                
     }
     
     function _example_output($output = null) {
-        $this->load->view('example.php',$output);    
+        if (!$this->ion_auth->logged_in())
+		{
+                    redirect('auth/login');
+                }else{
+                    $this->load->view('example.php',$output);
+                
+                }    
     }
  
     public function employees() {
