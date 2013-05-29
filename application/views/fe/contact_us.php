@@ -8,7 +8,7 @@ full_name 	: $('#full_name').val(),
 mob_no 	: $('#mob_no').val(),
 email 	: $('#email').val(),
 addr 	: $('#addr').val(),
-state : $('#state').val(),
+state 	: $('#state').val(),
 comment : $('#comment').val(),
 ajax 	: '1'
 };
@@ -42,6 +42,14 @@ ajax 	: '1'
 			else if(!validateEmail($('#email').val()))
 			{
             msg="Please provide a valid email address !";
+			//alert("Please provide a valid email address !");
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+			return false;
+			}
+			else if($('#addr').val()=='')
+			{
+            msg="Please provide your address !";
 			//alert("Please provide a valid email address !");
 			$('.success-message').html(msg);
 			$('.success-message').fadeIn(500).show();
@@ -231,7 +239,7 @@ function validateEmail(user_email){
 <!-- Popup from start -->
 
 <div id="login-box" class="login-popup">
-<div class="success-message" style="display:none;"></div>
+
 <div class="loading"></div>
                     <a href="#" class="close"><img src="<?php echo site_url('images/close_pop.png')?>" class="btn_close" title="Close Window" alt="Close" /></a>
                       <form method="post" class="contact_form" action="<?php echo site_url('');?>>">
@@ -244,19 +252,45 @@ function validateEmail(user_email){
                             <li><input type="text" name="email" id="email" /></li>
                             <li><label>Address <span>*</span></label></li>
                             <li><textarea cols="" name="addr" id="addr" rows="3"></textarea></li>
-                            <li><label>State <span>*</span></label></li>
+                            <li><label>State </label></li>
                             <li><select name="state" id="state">
                               <option selected="selected">------------------------------ Select State ------------------------------</option>
-                              <option>Andhrapradesh</option>
-                              <option>Assam</option>
-                              <option>Bihar</option>
-                              <option>Orrisa</option>
-                              <option>West Bengal</option>
+								<option>Andhra Pradesh</option>
+								<option>Assam</option>	
+								<option>Andaman & Nicobar</option>	
+								<option>Bihar</option>	
+								<option>Chandigarh</option>	
+								<option>Chhattisgarh</option>
+								<option>Delhi</option>	
+								<option>Goa</option>
+								<option>Gujarat</option>	
+								<option>Haryana</option>	 
+								<option>Himachal Pradesh</option>	
+								<option>Jammu & Kashmir</option>	
+								<option>Jharkhand</option>	
+								<option>Karnataka</option>	
+								<option>Kerala</option>	
+								<option>Madhya Pradesh</option>		
+								<option>Maharashtra</option>	
+								<option>Manipur</option>	
+								<option>Meghalaya</option>	
+								<option>Mizoram</option>	
+								<option>Nagaland</option>	
+								<option>Pondicherry</option>	
+								<option>Punjab</option>	
+								<option>Rajasthan</option>	
+								<option>Sikkim</option>		
+								<option>Tamilnadu</option>	
+								<option>Tripura</option>	
+								<option>Uttaranchal</option>	
+								<option>Uttar Pradesh</option>	
+								<option>West Bengal</option>
                             </select></li>
                             <li><label>Comment</label></li>
                             <li><textarea cols="" name="comment" id="comment" rows="3"></textarea></li>
                             <li><a href="#"><img src="<?php echo site_url('images/submit.png')?>" alt="Submit" title="Submit"  id="send"/></a></li>
                             </ul>
+							<div class="success-message" style="display:none; color:#FFFFFF; font-size:14px; font-weight:600;"></div>
       </form>
             </div>
 
