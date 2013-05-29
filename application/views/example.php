@@ -12,8 +12,14 @@ foreach($css_files as $file): ?>
 <style type='text/css'>
 body
 {
-	font-family: Arial;
-	font-size: 14px;
+	
+	background: #DCDDDF url(http://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
+	color: #000;
+	font: 14px Arial;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+
 }
 a {
     color: blue;
