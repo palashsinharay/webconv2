@@ -1,32 +1,36 @@
-<?php //include ("common/header.php");?>
-<?php 
-/*echo "<pre>";
-print_r($pageDetail);
-echo "</pre>";*/
-?>
+
 <div class="clear"></div>
 <!-- banner_inner start -->
 <div class="banner_inner">
-    <img src="<?php echo site_url('images/sub/phato-g.jpg')?>" alt="" />
+ <img src="<?php echo site_url('images/sub/phato-g.jpg')?>" alt="" />
 </div>
-  
 <!-- banner_inner end -->
 
 <!-- content area start -->
 
 <div class="content_area">
 
-<?php include("common/sidebar_upper.php");?>
-<?php include("common/sidebar_lower.php");?>
+<h2>News <span>&amp; Details</span></h2>
 
-
-</div>
-
-<div class="right_pan_area">
-<h3><strong><?php echo $newsContent->title;?></h3></strong> 
-<strong><span><?php echo $newsContent->date;?></span></strong>
+<table cellpadding="0" cellspacing="10">
+<tbody>
+<tr>
+<td class="news_title"><?php echo $newsContent->title;?></td>
+</tr>
+<tr>
+<td class="desrp">
 <?php echo $newsContent->description;?>
-</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
 
 <div class="clear"></div>
 </div>
@@ -43,5 +47,4 @@ echo "</pre>";*/
 <div class="clear"></div>
 </div>  
 <!-- wrappr end -->
-
-<?php //include("common/footer.php");?>
+<div class="clear"></div>
