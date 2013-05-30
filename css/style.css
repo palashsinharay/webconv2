@@ -63,10 +63,10 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 
 .slideshow .buttons {display:none;}
 .slideshow .buttons {display:block; position:absolute; z-index:100; right:45%; bottom:0; margin:0;}
-.slideshow .buttons li {float:left; display:inline; width:15px; height:15px; margin:0; line-height:20px; background-image:url(../images/hov.png); background-repeat:no-repeat;}
-.slideshow .buttons li a {float:left; text-decoration:none; width:15px; height:15px; color:#fff; outline:0; background:url(../images/nor.png)0 0 no-repeat;}
-.slideshow ul.buttons li a:hover {text-decoration:none; background:url(../images/hov.png)0 0 no-repeat;}
-.slideshow ul.buttons li.active a {background:url(../images/act.png)0 0 no-repeat;}
+.slideshow .buttons li {float:left; display:inline; width:15px; height:15px; margin:0; line-height:20px; background:url(../images/hov.png) 0 0 no-repeat;}
+.slideshow .buttons li a {float:left; text-decoration:none; width:15px; height:15px; color:#fff; outline:0; background:url(../images/nor.png) 0 0 no-repeat;}
+.slideshow ul.buttons li a:hover {text-decoration:none; background:url(../images/hov.png) 0 0 no-repeat;}
+.slideshow ul.buttons li.active a {background:url(../images/act.png) 0 0 no-repeat;}
 
 
 .content_area {padding:20px 0 10px;}
