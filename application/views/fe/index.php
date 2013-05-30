@@ -74,7 +74,7 @@
 	<button class="next"></button>    
     <ul>
 	<?php foreach($lowerSlider as $values):?>
-        <li><a href="<?php echo site_url('main/page/'.$values->id); ?>"><img src="<?php echo site_url('assets/uploads/files/'.$values->image);?>" alt="" ></a><div class="caption"><?php echo $values->menutitle;?></div></li>
+        <li><a href="<?php echo site_url('main/page/'.$values->id); ?>"><img src="<?php echo site_url('assets/uploads/files/'.$values->image);?>" alt="" ></a><div class="caption"><?php echo $values->short_title;?></div></li>
 		<?php endforeach;?>
        <!-- <li><img src="<?php /// echo site_url('images/exprt_2.png')?>" alt="" ><div class="caption">Infrastructure Planning, Development &amp; Upgradation </div></li>
         <li><img src="<?php //echo site_url('images/exprt_3.png')?>" alt="" ><div class="caption">Detailed Design &amp; engineering / Project Monitoring &amp; Supervision </div></li>

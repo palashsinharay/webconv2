@@ -318,16 +318,17 @@ class Admin extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('lower_slider')
             ->set_subject('Featured content for bottom slider')
-            ->columns('slider_id','id','image')
+            ->columns('slider_id','id','image','short_title')
             ->display_as('slider_id','featured slider id') 
-            ->display_as('id','page title');
+            ->display_as('id','page title')
+            ->display_as('short_title','Short title');
             
             
         
          $crud->set_relation('id','cms_page','menutitle');
         //below code is for edit and add
-        //$crud->fields('menutitle','icon');
-        //$crud->required_fields('menutitle','content');
+        //$crud->fields('short_tilte');
+        $crud->required_fields('short_title','image');
         
         
         

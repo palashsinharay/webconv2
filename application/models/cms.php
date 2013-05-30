@@ -150,6 +150,7 @@ class Cms extends CI_Model {
         foreach($this->result as $values){
          $object_cms = $this->get_page_content($values->id);
          $object_cms->image = $values->image;
+         $object_cms->short_title = $values->short_title;
          $data[] = $object_cms;
    
         }

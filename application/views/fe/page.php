@@ -22,7 +22,7 @@ echo "</pre>";*/
 </div>
 
 <div class="right_pan_area">
-
+<h2><?php echo $pageDetail->menutitle;?></h2>
 <?php echo $pageDetail->content;?>
 
 
