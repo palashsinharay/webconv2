@@ -146,7 +146,7 @@ function validateEmail(user_email){
 <tr><th>Job Seeker Information</th></tr>
 <tr>
 <td>
-<form action="#" method="post" enctype="multipart/form-data" class="job_form">
+    <form action="<?php echo site_url('main/job_email');?>" method="post" enctype="multipart/form-data" class="job_form">
 <table cellspacing="15" cellpadding="0">
 <tr><td colspan="2">Please fill up the form below, All Fields Marked with (<span>*</span>) are mandatory</td></tr>
 <tr>
@@ -233,7 +233,7 @@ function validateEmail(user_email){
 </tr>
 <tr><td></td><td><a href="#"><img src="images/submit.png" alt="Submit" title="Submit" id="send" /></a></td></tr>
 </table>
-
+<input type="submit" value="hello"/>
 
 
 </form>

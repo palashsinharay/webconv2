@@ -149,9 +149,9 @@ class Main extends CI_Controller {
  	
         public function job_email()
 		{
-			print_r($_FILES['fileField']);
-			die();
-			
+			//print_r($_FILES['fileField']);
+			//die();
+			$filepath = $_FILES['fileField']['tmp_name'];
 			try
 			{
 				unset($_POST['action']);
@@ -209,7 +209,7 @@ class Main extends CI_Controller {
 				</html>
 				';
 				//$this->email->attach($posted['fileField']);
-				$this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+				$this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$filepath);
 				}								
 			}
 			catch(Exception $err_obj)
@@ -279,6 +279,7 @@ class Main extends CI_Controller {
                                         $this->email->subject('Contact Us Form WEBCON :');
                                         $this->email->message($message);
                                         
+                                        
 										if($this->email->send())
                                         {
                                                      echo 'Thank you !  We have received your message. !';
@@ -297,7 +298,7 @@ class Main extends CI_Controller {
 		
 		
 		############# contact us email send function Start #############
-        public function email_send($message,$email_to,$email_from)
+        public function email_send($message,$email_to,$email_from,$filepath)
         {
 	try
 	{
@@ -312,6 +313,7 @@ class Main extends CI_Controller {
                                         $this->email->bcc('sahani.bunty9@gmail.com');
                                         $this->email->subject('Contact Us Form WEBCON :');
                                         $this->email->message($message);
+                                        $this->email->attach($filepath);
                                         if($this->email->send())
                                         {
                                                      echo 'Thank you !  We have received your message. !';
