@@ -1,72 +1,61 @@
 <script type="text/javascript">
+$(document).ready(function() {
+    $('#form1').submit(function() {
 
-    function validate() {
-
-alert("choto bichi "+document.getElementsByName('name'));
-return false;
-exit();
 		
 		//alert($('#cap_div').text());	
-		 if($('#full_name').val()=='')
+		 if($('#name').val()=='')
 			{
-            msg="Please provide your full name !";
-			//alert("Please provide a valid email address !");
-			$('.success-message').html(msg);
-			$('.success-message').fadeIn(500).show();
+            alert("Please provide your full name !");
+			
 			return false;
 			}
 			else if($('#mob').val()=='')
 			{
-            msg="Please provide your mobile number !";
+            alert("Please provide your mobile number !");
 			//alert("Please provide a valid email address !");
-			$('.success-message').html(msg);
-			$('.success-message').fadeIn(500).show();
+			
 			return false;
 			}
 			else if(!validateEmail($('#email').val()))
 			{
-            msg="Please provide a valid email address !";
+            alert("Please provide a valid email address !");
 			//alert("Please provide a valid email address !");
-			$('.success-message').html(msg);
-			$('.success-message').fadeIn(500).show();
+			
 			return false;
 			}
 			else if($('#addr').val()=='')
 			{
-            msg="Please provide your address !";
+            alert("Please provide your address !");
 			//alert("Please provide a valid email address !");
-			$('.success-message').html(msg);
-			$('.success-message').fadeIn(500).show();
+			
 			return false;
 			}
 			else if($('#city').val()=='')
 			{
-					msg="Please Provide your city !";
-					$('.success-message').html(msg);
-					$('.success-message').fadeIn(500).show();
+					alert("Please Provide your city !");
+					
 					return false;
 			
 			}
 			else if($('#last_qulifc').val()=='')
 			{
-					msg="Please Provide your Last Qualification !";
-					$('.success-message').html(msg);
-					$('.success-message').fadeIn(500).show();
+					alert("Please Provide your Last Qualification !");
+					
 					return false;
 			
 			}
 			else if($('#fileField').val()=='')
 			{
-					msg="Please Provide your cv !";
-					$('.success-message').html(msg);
-					$('.success-message').fadeIn(500).show();
+					alert("Please Provide your cv !");
+					
 					return false;
 			
 			}
 			
 			
 //return true;
-}
+});
 function validateEmail(user_email){
    var filter = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{1,4}$/;
     if(filter.test(user_email)){
@@ -81,7 +70,7 @@ function validateEmail(user_email){
 
 
 
-$(document).ready(function() {
+
 
 });
 </script>
@@ -110,7 +99,7 @@ $(document).ready(function() {
 <tr><th>Job Seeker Information</th></tr>
 <tr>
 <td>
-    <form action="<?php echo site_url('main/job_email');?>" method="post" enctype="multipart/form-data" class="job_form" onsubmit="return validate()" >
+    <form id="form1" action="<?php echo site_url('main/job_email');?>" method="post" enctype="multipart/form-data" class="job_form" >
 <table cellspacing="15" cellpadding="0">
 <tr><td colspan="2">Please fill up the form below, All Fields Marked with (<span>*</span>) are mandatory</td></tr>
 <tr>
