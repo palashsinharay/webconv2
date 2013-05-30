@@ -143,7 +143,7 @@ class Main extends CI_Controller {
 	public function contact_us()
     {
 				
-				$data['contact_us_data']=$this->Cms->get_page_content(19);
+                        $data['contact_us_data']=$this->Cms->get_page_content(19);
 		        $this->_renderViewContact('contact_us',$data);
     }
  	
@@ -151,7 +151,12 @@ class Main extends CI_Controller {
 		{
 			//print_r($_FILES['fileField']);
 			//die();
-			$filepath = $_FILES['fileField']['tmp_name'];
+                        if(move_uploaded_file($_FILES['fileField']['tmp_name'], site_url('assets/uploads/cv/'.$_FILES['fileField']['name']))){
+                         echo  $filepath = APPPATH.'assets/uploads/cv/'.$_FILES['fileField']['name'];
+                          die();
+                        }
+			 
+                        
 			try
 			{
 				unset($_POST['action']);
@@ -268,24 +273,9 @@ class Main extends CI_Controller {
 				</body>
 				</html>
 				';
-										$this->load->library( 'email' );
-										$email_setting  = array('mailtype'=>'html');
-										$this->email->initialize($email_setting);
-										$email_to    = 'siddharth@satyajittech.com';
-                                        $email_from  =  $posted["email"];
-                                        $this->email->from($email_from, 'WEBCON');
-                                        $this->email->to($email_to);
-                                        $this->email->bcc('sahani.bunty9@gmail.com');
-                                        $this->email->subject('Contact Us Form WEBCON :');
-                                        $this->email->message($message);
-                                        
-                                        
-										if($this->email->send())
-                                        {
-                                                     echo 'Thank you !  We have received your message. !';
-                                        }					
+                                  			
 				
-				//$this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+				$this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
 				}								
 			}
 			catch(Exception $err_obj)
