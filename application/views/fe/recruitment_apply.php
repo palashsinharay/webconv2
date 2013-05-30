@@ -1,36 +1,13 @@
 <script type="text/javascript">
-$(document).ready(function() {
 
+    function validate() {
 
-
-$('#send').click(function() {
-
-
-var form_data = {
-post_app 	: $('#post_app').val(),
-sl_no 	: $('#sl_no').val(),
-name 	: $('#name').val(),
-mob 	: $('#mob').val(),
-email 	: $('#email').val(),
-addr : $('#addr').val(),
-state : $('#state').val(),
-city : $('#city').val(),
-last_qulifc : $('#last_qulifc').val(),
-fileField : $('#fileField').val(),
-ajax 	: '1'
-};
+alert("choto bichi "+document.getElementsByName('name'));
+return false;
+exit();
 		
 		//alert($('#cap_div').text());	
-		if($('#name').val()=='')
-			{
-					//alert("Enter Email ID");
-					msg="Please Provide your email address !";
-					$('.success-message').html(msg);
-					$('.success-message').fadeIn(500).show();
-					return false;
-								
-			}
-			else if($('#full_name').val()=='')
+		 if($('#full_name').val()=='')
 			{
             msg="Please provide your full name !";
 			//alert("Please provide a valid email address !");
@@ -87,29 +64,9 @@ ajax 	: '1'
 			
 			}
 			
-			else
-			{
-				$('.loading').show();
-				$.ajax({
-				url: "<?php echo site_url('main/job_email'); ?>",
-				//url: "main/email_send",
-				enctype: 'multipart/form-data',
-				type: 'POST',
-				async : false,
-				data: form_data,
-				success: function(msg) {
-				//alert(msg);
-				
-				$('.success-message').html(msg);
-				$('.success-message').fadeIn(500).show();
-				$('.loading').hide();
-				}
-				});
-		
-		
-		}
-return false;
-});
+			
+//return true;
+}
 function validateEmail(user_email){
    var filter = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{1,4}$/;
     if(filter.test(user_email)){
@@ -118,6 +75,13 @@ function validateEmail(user_email){
         return false;
     }
 }
+
+    
+    
+
+
+
+$(document).ready(function() {
 
 });
 </script>
@@ -146,16 +110,19 @@ function validateEmail(user_email){
 <tr><th>Job Seeker Information</th></tr>
 <tr>
 <td>
-    <form action="<?php echo site_url('main/job_email');?>" method="post" enctype="multipart/form-data" class="job_form">
+    <form action="<?php echo site_url('main/job_email');?>" method="post" enctype="multipart/form-data" class="job_form" onsubmit="return validate()" >
 <table cellspacing="15" cellpadding="0">
 <tr><td colspan="2">Please fill up the form below, All Fields Marked with (<span>*</span>) are mandatory</td></tr>
 <tr>
 <td width="30%"><label>Post Applied For</label></td>
-<td width="70%"><input name="post_app" type="text" id="post_app" readonly="readonly" value="Sr. Consultant" /></td>
+<td width="70%"><input name="post_app" type="text" id="post_app" readonly="readonly" value="<?php echo $recruitmentContent->job_position;?>" /></td>
 </tr>
 <tr>
 <td><label>Serial No.</label></td>
-<td><input name="sl_no" type="text" id="sl_no" value="WB0015" readonly="readonly" /></td>
+<td>
+    <input name="sl_no" type="text" id="sl_no" value="<?php echo $recruitmentContent->job_code;?>" readonly="readonly" />
+    <input name="jobid" type="hidden" id="jobid" value="<?php echo $recruitmentContent->id;?>" readonly="readonly" />
+</td>
 </tr>
 
 <tr>
@@ -231,9 +198,10 @@ function validateEmail(user_email){
 <td><input type="file" name="fileField" id="fileField" />
   <label for="fileField"></label></td>
 </tr>
-<tr><td></td><td><a href="#"><img src="images/submit.png" alt="Submit" title="Submit" id="send" /></a></td></tr>
+<!--<tr><td></td><td><a href="#"><img src="images/submit.png" alt="Submit" title="Submit" id="send" /></a></td></tr>-->
+<tr><td></td><td><input type="submit" value="Apply" /></td></tr>
 </table>
-<input type="submit" value="hello"/>
+<p style="color:#000; font-size:14px; font-weight:600;"><?php echo $message; ?></p>
 
 
 </form>

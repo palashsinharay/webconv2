@@ -10,7 +10,9 @@ class Main extends CI_Controller {
         $this->load->database();
         $this->load->helper('url');
         /* ------------------ */ 
- 
+        $config['upload_path'] = './assets/uploads/cv';
+        $config['allowed_types'] = 'gif|jpg|png|pdf|doc|docx|txt';
+        $this->load->library('upload', $config);
         $this->load->library('grocery_CRUD');
 		//$this->load->library('email');
 		//$config['protocol'] = 'sendmail';
@@ -105,9 +107,14 @@ class Main extends CI_Controller {
                 $this->_renderView('recruitment_details',$data);
 		
     }
-    public function recruitment_apply($id)
+    public function recruitment_apply($id,$message = null)
     {
 		$data['recruitmentContent'] = $this->Cms->get_recruitment_content($id);
+//                echo "<pre>";
+//                print_r($data['recruitmentContent']);
+//                echo "</pre>";
+//                die();
+                $data['message'] = $message ;
                 $this->_renderView('recruitment_apply',$data);
 		
     }	
@@ -151,16 +158,14 @@ class Main extends CI_Controller {
 		{
 			//print_r($_FILES['fileField']);
 			//die();
-                        if(move_uploaded_file($_FILES['fileField']['tmp_name'], site_url('assets/uploads/cv/'.$_FILES['fileField']['name']))){
-                         echo  $filepath = APPPATH.'assets/uploads/cv/'.$_FILES['fileField']['name'];
-                          die();
-                        }
-			 
-                        
+                        $this->upload->do_upload('fileField');
+                        $data = $this->upload->data();
+                     
 			try
 			{
 				unset($_POST['action']);
 				$posted=array();
+                                $posted["jobid"]  = trim($this->input->post("jobid"));
 				$posted["post_app"]  	= trim($this->input->post("post_app"));
 				$posted["sl_no"]  	= trim($this->input->post("sl_no"));
 				$posted["name"]  	= trim($this->input->post("name"));
@@ -214,8 +219,12 @@ class Main extends CI_Controller {
 				</html>
 				';
 				//$this->email->attach($posted['fileField']);
-				$this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$filepath);
-				}								
+				$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
+                                if($status == 'success'){
+                                    $this->recruitment_apply($posted["jobid"],'job application successfully submitted');
+                                }
+                                
+                                }								
 			}
 			catch(Exception $err_obj)
 			{
@@ -275,8 +284,15 @@ class Main extends CI_Controller {
 				';
                                   			
 				
-				$this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
-				}								
+				$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+				
+                                if($status == 'success'){
+                                   echo "Thank you for contacting us"; 
+                                } else {
+                                   echo "Message sending failed !"; 
+                                }
+                                
+                                }								
 			}
 			catch(Exception $err_obj)
 			{
@@ -288,25 +304,29 @@ class Main extends CI_Controller {
 		
 		
 		############# contact us email send function Start #############
-        public function email_send($message,$email_to,$email_from,$filepath)
+        public function email_send($message,$email_to,$email_from,$filepath = null)
         {
 	try
 	{
                        
-										$this->load->library( 'email' );
-										$email_setting  = array('mailtype'=>'html');
-										$this->email->initialize($email_setting);
-										//$email_to    = 'siddharth@satyajittech.com';
+                                        $this->load->library( 'email' );
+                                        $email_setting  = array('mailtype'=>'html');
+                                        $this->email->initialize($email_setting);
+                                        //$email_to    = 'siddharth@satyajittech.com';
                                         //$email_from  =  $posted["email"];
                                         $this->email->from($email_from, 'WEBCON');
                                         $this->email->to($email_to);
                                         $this->email->bcc('sahani.bunty9@gmail.com');
                                         $this->email->subject('Contact Us Form WEBCON :');
                                         $this->email->message($message);
-                                        $this->email->attach($filepath);
+                                        if($filepath != NULL){
+                                           $this->email->attach($filepath); 
+                                        }
+                                        
                                         if($this->email->send())
                                         {
-                                                     echo 'Thank you !  We have received your message. !';
+                                                     return 'success';
+                                                     
                                         }					
 
                      // ------------------ email send code end ------------------//
