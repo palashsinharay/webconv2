@@ -73,7 +73,7 @@ ajax 	: '1'
 			{
 				$('.loading').show();
 				$.ajax({
-				url: "<?php echo site_url('main/email_send'); ?>",
+				url: "<?php echo site_url('main/contactus_email'); ?>",
 				//url: "main/email_send",
 				type: 'POST',
 				async : false,

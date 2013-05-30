@@ -5,9 +5,10 @@ body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,inpu
 h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em {font-weight:normal; font-style:normal;}
 ul,ol,li {list-style:none;}
 fieldset,img {border:none;}
-h1,h2,h3,h4,h5,h6{color:#3a5b79; }
-h2 {font-size:24px; font-weight:bold; padding-bottom:25px;}
+h1,h2,h3,h4,h5,h6{color:#3a5b79; font-weight:normal;}
+h2 {font-size:22px; padding-bottom:25px;}
 h2 span {color:#137c83;}
+h4 {font-size:16px; padding-bottom:10px; color:#09C;}
 
 :focus{outline:0;}
 body{font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; background:#fff; color:#444343; font-weight:normal;}
@@ -15,10 +16,12 @@ body{font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:20px;
 
 /* general */
 .clear{clear:both; font-size:0px; line-height:0; height:0px;}
+.clear_5{clear:both; font-size:0px; line-height:0; height:5px;}
 
 a img{border:0; outline:none;}
 a{text-decoration:none; outline:0; cursor:pointer; color:#137c83; font-weight:normal;}
 a:hover{text-decoration:underline;}
+.botm_line { border-bottom:1px dashed #999; padding-bottom:10px; margin-bottom:5px;}
 
 /*input.text,select,textarea{background:#fff; border:solid 1px #e1e1e1; font-size:12px; color:#3e3e3e; padding:2px;}*/
 
@@ -71,6 +74,9 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 .content_area th {text-align:center; font-size:11px; font-weight:bold; background:#ccc; padding:2px; vertical-align:middle;}
 .content_area td {text-align:center; font-size:12px; font-weight:normal; padding:2px; vertical-align:top;}
 .content_area td.desrp {text-align:left;}
+.content_area td.desrp p {text-align:justify; line-height:18px; margin-bottom:20px;}
+.content_area td.news_title {font-weight:bold; text-align:left; font-size:16px; padding:5px 5px 15px; border-bottom:1px solid #ccc;}
+.content_area td .news_date {float:right; width:auto; font-style:italic; font-weight:normal; color:#f60;} 
 .content_area td.title {text-align:left; color:#f60; font-weight:bold;}
 .content_area td li {background:url(../images/arrow_right.png) 0 4px no-repeat; padding-left:15px; margin-bottom:5px;}
 .content_area td .column { float:left; padding:10px 5px; background:#f2f2f2; border:1px dashed #ccc;}
@@ -80,6 +86,10 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 .content_area td .four {width:21%; margin:5px 12px 5px;}
 .content_area td .three {width:30%; margin:5px 10px 5px;}
 .content_area td .two {width:45%; margin:5px 15px 5px;}
+.contact_tbl td {text-align:left;}
+.contact_tbl td li {background:none; padding:0; margin-bottom:1px;} 
+.contact_tbl td li span {margin:0 5px; color:#999;}
+.contact_tbl h4 { background:url(../images/contact.png) 0 0 no-repeat; padding-left:30px;}
 
 .left_pan_area {width:320px; float:left;}
 .right_pan_area {width:648px; float:right; padding-right: 10px;}
@@ -144,3 +154,12 @@ a.more_link {float:right; width:auto; margin-bottom:10px; font-size:11px; font-w
 #gallery ul a:hover {color:#fff;}
 
 #jquery-lightbox {position:relative; z-index:9999;}
+
+#sideBar {width:39px; height:186px; float:left; display:block; position:fixed; left:0; top:120px; z-index:999;}
+.contact_form {margin:0; padding:5px 0 5px 5px; font-size:12px;}
+.contact_form li {margin-bottom:5px;}
+.contact_form li span{color:#f60;}
+.contact_form li label{color:#fff; clear:both; padding-left:2px; margin:0;}
+.contact_form input[type="text"], .contact_form textarea, .contact_form select {border:1px solid #1e4e64; background:#c4eded; padding:3px 5px; margin:0; width:95%; font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:normal; color:#063a3e;}
+.contact_form textarea {margin-bottom:0 !important;border:none;}
+.contact_form select {width:97% !important;border:none;}

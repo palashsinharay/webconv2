@@ -27,7 +27,7 @@
 <td><?php echo $row->job_position;?></td>
 <td class="desrp"><?php echo $row->qualification_other_details;?></td>
 <td width="5%"><a href="<?php echo site_url('main/recruitment_details/'.$row->id);?>"><img src="images/detail.png" alt="View Detail" /></a></td>
-<td width="5%"><a href="#<?php //echo site_url('main/recruitment_apply/'.$row->id);?>"><img src="images/app.png" alt="Apply" /></a></td>
+<td width="5%"><a href="<?php echo site_url('main/recruitment_apply/'.$row->id);?>"><img src="images/app.png" alt="Apply" /></a></td>
 </tr>
 <?php endforeach;?>
 </tbody>
