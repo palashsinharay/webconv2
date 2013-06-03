@@ -47,7 +47,7 @@ a:hover
                 <li id="services"><a href='<?php echo site_url('admin/resource_center')?>'>Resource Center</a></li>
                 <li id="services"><a href='<?php echo site_url('admin/featured_menu')?>'>Featured Menu</a></li>
                 <li id="services"><a href='<?php echo site_url('admin/lower_slider')?>'>Lower slider</a></li>
-                <li id="services"><a href='<?php echo site_url('auth/logout')?>'>logout</a></li>
+                <li id="services"><a href='<?php echo site_url('main')?>'>logout</a></li>
                 
             </ul>
         </nav>

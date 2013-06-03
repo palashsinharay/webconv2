@@ -12,6 +12,7 @@ class Cms extends CI_Model {
 	public $_resource_center = 'resource_center';
 	public $_categories = 'categories';
 	public $_lowerSlider = 'lower_slider';
+        public $_user = 'users';
 	public $result = null;
 
 	function __construct()
@@ -20,6 +21,22 @@ class Cms extends CI_Model {
 		parent::__construct();
 	}
 
+        
+        //function for getting cms page content
+	function get_login($username)
+	{
+
+            	$query = $this->db->get_where($this->_user, array('username' => $username));
+                $this->result = $query->result();
+                if($this->result != NULL){
+                    return $this->result[0];
+                }else{
+                    return FALSE;
+                }
+                
+                
+
+	}
 
 	//function for getting cms page content
 	function get_page_content($id)

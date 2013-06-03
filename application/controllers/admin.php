@@ -11,28 +11,38 @@ class Admin extends CI_Controller {
         $this->load->database();
         $this->load->helper('url');
         /* ------------------ */ 
-        $this->load->library('Ion_auth');
         $this->load->library('grocery_CRUD');
-        
-        
-        
- 
+        $this->load->model('Cms');
     }
- 
+    
+    function login() {
+        
+        
+        $username = trim($this->input->post("username"));;
+        $password = trim($this->input->post("password"));
+        $data = $this->Cms->get_login($username);
+        if($data != FALSE && $data->password == md5($password)){
+            //return TRUE;
+            $this->cms_page();
+        }else{
+            //return FALSE;
+            $this->load->view('fe/login.php');
+        }
+        
+        //print_r($data);
+    }
+
+
     public function index() {
         
-                   $this->cms_page(); 
-                
+        $this->login();
     }
     
     function _example_output($output = null) {
-        if (!$this->ion_auth->logged_in())
-		{
-                    redirect('auth/login');
-                }else{
+        
                     $this->load->view('example.php',$output);
                 
-                }    
+                  
     }
  
     public function employees() {

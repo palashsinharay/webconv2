@@ -48,6 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+//$db['default']['hostname'] = 'localhost';
+//$db['default']['username'] = 'satltd_webcon';
+//$db['default']['password'] = 'webcon@123';
+//$db['default']['database'] = 'satltd_webcon';
+
 $db['default']['hostname'] = '192.168.1.16';
 $db['default']['username'] = 'palash';
 $db['default']['password'] = '123';
