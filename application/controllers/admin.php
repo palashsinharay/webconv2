@@ -23,7 +23,14 @@ class Admin extends CI_Controller {
         $data = $this->Cms->get_login($username);
         if($data != FALSE && $data->password == md5($password)){
             //return TRUE;
-            $this->cms_page();
+            $loginData = array(
+                   'username'  => $data->username,
+                   'email'     => $data->email,
+                   'logged_in' => TRUE
+               );
+
+            $this->session->set_userdata($loginData);
+            $this->index();
         }else{
             //return FALSE;
             $this->load->view('fe/login.php');
@@ -31,11 +38,31 @@ class Admin extends CI_Controller {
         
         //print_r($data);
     }
+    public function logout(){
+        $loginData = array(
+                   'username'  => '',
+                   'email'     => '',
+                   'logged_in' => FALSE
+               );
+
+        $this->session->unset_userdata($loginData);
+        $this->index();
+    }
+    
+    public function check_login() {
+            return $this->session->userdata('logged_in');
+            $this->index();
+    }
 
 
     public function index() {
         
-        $this->login();
+        if($this->check_login()){
+            $this->cms_page();
+        } else {
+            $this->load->view('fe/login.php');
+        }
+        
     }
     
     function _example_output($output = null) {
