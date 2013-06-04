@@ -46,19 +46,19 @@ class Admin extends CI_Controller {
                );
 
         $this->session->unset_userdata($loginData);
-        $this->index();
+        redirect('admin/login');
     }
     
     public function check_login() {
             return $this->session->userdata('logged_in');
-            $this->index();
+            
     }
 
 
     public function index() {
         
         if($this->check_login()){
-            $this->cms_page();
+            redirect('admin/cms_page');
         } else {
             $this->load->view('fe/login.php');
         }
