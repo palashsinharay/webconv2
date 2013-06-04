@@ -1,4 +1,57 @@
+<script type="text/javascript" src="<?php echo site_url('script/jquery-1.js')?>"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+//alert("hiiii");
 
+    $('#loginform').submit(function() {
+ //   alert("hello");
+		
+		//alert($('#cap_div').text());	
+		 if($('#username').val()=='')
+			{
+           // alert("Please provide your full name !");
+            msg="Please provide your username !";
+			//alert("Please provide a valid email address !");
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+			return false;
+			}
+			else if($('#password').val()=='')
+			{
+//            alert("Please provide your mobile number !");
+	        msg="Please provide your password !";
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+			return false;
+			}
+			else if(!validateEmail($('#username').val()))
+			{
+            //alert("Please provide a valid email address !");
+	        msg="Please provide a valid email address !";
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+			return false;
+			}
+//return true;
+});
+function validateEmail(user_email){
+   var filter = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{1,4}$/;
+    if(filter.test(user_email)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+    
+    
+
+
+
+
+
+});
+</script>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
@@ -274,8 +327,11 @@ form:after {
 <div class="container">
 	<section id="content">
 <!--		<form action="">-->
-<?php echo form_open("admin/login");?>
-			<h1>Login Form</h1>
+<?php 
+$attributes = array('id' => 'loginform');
+echo form_open("admin/login",$attributes);?>
+<!--<form id="form1" action="<?php echo site_url('admin/login');?>" method="post" enctype="multipart/form-data" class="login_form" >
+-->			<h1>Login Form</h1>
 			<div>
 <!--				<input type="text" placeholder="Username" required="" id="username" />-->
     <?php 
@@ -309,6 +365,10 @@ $password = array(
 <!--		<div class="button">
 			<a href="#">Download source file</a>
 		</div> button -->
+	
+	<div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600;"></div>
+	<br/>
+	<br/>
 	</section><!-- content -->
 </div><!-- container -->
 </body>

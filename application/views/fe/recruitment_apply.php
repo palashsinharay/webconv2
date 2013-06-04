@@ -6,49 +6,59 @@ $(document).ready(function() {
 		//alert($('#cap_div').text());	
 		 if($('#name').val()=='')
 			{
-            alert("Please provide your full name !");
-			
+           // alert("Please provide your full name !");
+            msg="Please provide your full name !";
+			//alert("Please provide a valid email address !");
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
 			return false;
 			}
 			else if($('#mob').val()=='')
 			{
-            alert("Please provide your mobile number !");
-			//alert("Please provide a valid email address !");
-			
+//            alert("Please provide your mobile number !");
+	        msg="Please provide your mobile number !";
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
 			return false;
 			}
 			else if(!validateEmail($('#email').val()))
 			{
-            alert("Please provide a valid email address !");
-			//alert("Please provide a valid email address !");
-			
+            //alert("Please provide a valid email address !");
+	        msg="Please provide a valid email address !";
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
 			return false;
 			}
 			else if($('#addr').val()=='')
 			{
-            alert("Please provide your address !");
-			//alert("Please provide a valid email address !");
-			
+//            alert("Please provide your address !");
+	        msg="Please provide your address !";
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
 			return false;
 			}
 			else if($('#city').val()=='')
 			{
-					alert("Please Provide your city !");
-					
-					return false;
-			
+//					alert("Please Provide your city !");
+		    msg="Please Provide your city !";
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+			return false;
 			}
 			else if($('#last_qulifc').val()=='')
 			{
-					alert("Please Provide your Last Qualification !");
-					
-					return false;
-			
+			//alert("Please Provide your Last Qualification !");
+		    msg="Please Provide your Last Qualification !";
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+			return false;
 			}
 			else if($('#fileField').val()=='')
 			{
-					alert("Please Provide your cv !");
-					
+		    msg="Please Provide your cv !";
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+//			alert("Please Provide your cv !");
 					return false;
 			
 			}
@@ -135,7 +145,7 @@ function validateEmail(user_email){
 </tr>
 
 <tr>
-<td><label>State <span>*</span></label></td>
+<td><label>State </label></td>
 <td><select name="state" id="state">
 <option selected="selected">------------------------------ Select State ------------------------------</option>
 								<option>Andhra Pradesh</option>
@@ -191,7 +201,7 @@ function validateEmail(user_email){
 <tr><td></td><td><input type="submit" value="Apply" /></td></tr>
 </table>
 <p style="color:#000; font-size:14px; font-weight:600;"><?php echo $message; ?></p>
-
+<div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600;"></div>
 
 </form>
 </td>
