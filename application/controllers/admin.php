@@ -33,11 +33,13 @@ class Admin extends CI_Controller {
             $this->index();
         }else{
             //return FALSE;
-            $this->load->view('fe/login.php');
+            $datalogin['message'] = "login failed";
+            $this->load->view('fe/login.php',$datalogin);
         }
         
         //print_r($data);
     }
+    
     public function logout(){
         $loginData = array(
                    'username'  => '',
@@ -46,7 +48,7 @@ class Admin extends CI_Controller {
                );
 
         $this->session->unset_userdata($loginData);
-        redirect('admin/login');
+        redirect('admin/index');
     }
     
     public function check_login() {
@@ -60,7 +62,8 @@ class Admin extends CI_Controller {
         if($this->check_login()){
             redirect('admin/cms_page');
         } else {
-            $this->load->view('fe/login.php');
+            $datalogin['message'] = NULL;
+            $this->load->view('fe/login.php',$datalogin);
         }
         
     }

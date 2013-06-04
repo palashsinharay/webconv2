@@ -367,6 +367,9 @@ $password = array(
 		</div> button -->
 	
 	<div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600;"></div>
+        <?php if($message != Null):?>
+        <div class="login-message" style="color:#FF0000; font-size:14px; font-weight:600;"><?php echo $message; ?></div>
+        <?php endif;?>
 	<br/>
 	<br/>
 	</section><!-- content -->
