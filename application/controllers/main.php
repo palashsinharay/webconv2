@@ -28,7 +28,7 @@ class Main extends CI_Controller {
                 
                 $data['featured_menu'] = $this->Cms->get_featured_menu();
                 $data['news'] = $this->Cms->get_news_list(1);
-                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('aboutus');
+                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('whoweare');
                 
                 $this->load->view('fe/common/header.php',$data);
                 $this->load->view('fe/'.$page.'.php',$data);
@@ -39,7 +39,7 @@ class Main extends CI_Controller {
                 
                 $data['featured_menu'] = $this->Cms->get_featured_menu();
                 $data['news'] = $this->Cms->get_news_list(1);
-                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('aboutus');
+                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('whoweare');
                 
                 $this->load->view('fe/common/header_contact.php',$data);
                 $this->load->view('fe/'.$page.'.php',$data);

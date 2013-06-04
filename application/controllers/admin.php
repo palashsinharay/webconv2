@@ -141,13 +141,13 @@ class Admin extends CI_Controller {
             ->display_as('content','Content')
             ->display_as('pid','parent id')
             ->display_as('filename','Banner')
-                ->display_as('categories_id','category type');
+            ->display_as('categories_id','category type');
         
         
         //below code is for edit and add
 
-        $crud->fields('menutitle','content','type','filename','categories_id');
-        $crud->required_fields('menutitle','content');
+        $crud->fields('menutitle','content','filename','categories_id');
+        
         
         $crud->set_relation('categories_id','categories','category_name');
 
@@ -158,7 +158,7 @@ class Admin extends CI_Controller {
         //     ->set_rules('email','email nnn','valid_email|required');
         //below code is for file upload
         $crud->set_field_upload('filename','assets/uploads/files');
-        $crud->required_fields('menutitle','content','filename');
+        $crud->required_fields('menutitle','content','categories_id');
         
         $output = $crud->render();
         $this->_example_output($output);

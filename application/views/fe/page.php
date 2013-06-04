@@ -7,7 +7,11 @@ echo "</pre>";*/
 <div class="clear"></div>
 <!-- banner_inner start -->
 <div class="banner_inner">
-  <img src="<?php echo site_url('assets/uploads/files/')."/".$pageDetail->filename?>" alt="" />
+  <?php if($pageDetail->filename != NULL):?>
+    <img src="<?php echo site_url('assets/uploads/files/')."/".$pageDetail->filename?>" alt="" />
+    <?php else : ?>
+    <img src="<?php echo site_url('images/sub/Specialised-Service.jpg')?>" alt="" />
+    <?php endif;?>
  </div>
 <!-- banner_inner end -->
 

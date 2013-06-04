@@ -55,7 +55,7 @@
 <td></td>
 
 <tr>
-    <td colspan="2" align="center"><a href="#"><img src="<?php echo site_url('images/apply.png');?>" alt="Apply" /></a></td>
+    <td colspan="2" align="center"><a href="<?php echo site_url('main/recruitment_apply/'.$recruitmentContent->id);?>"><img src="<?php echo site_url('images/apply.png');?>" alt="Apply" /></a></td>
 </tr>
 </tbody>
 </table>
