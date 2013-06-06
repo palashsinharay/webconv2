@@ -220,7 +220,6 @@ class Main extends CI_Controller {
 				';
 				//$this->email->attach($posted['fileField']);
 				$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
-                               // $status = $this->email_send($message,'enquiry@webcon.in',$posted["email"],$data['full_path']);
                                 if($status == 'success'){
                                     $this->recruitment_apply($posted["jobid"],'job application successfully submitted');
                                 }
@@ -285,8 +284,7 @@ class Main extends CI_Controller {
 				';
                                   			
 				
-				//$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
-                                $status = $this->email_send($message,'contact@webcon.in',$posted["email"]);
+				$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
 				
                                 if($status == 'success'){
                                    echo "Thank you for contacting us"; 
@@ -367,8 +365,7 @@ class Main extends CI_Controller {
 				';
                                   			
 				
-				//$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
-                                $status = $this->email_send($message,'enquiry@webcon.in',$posted["email"]);
+				$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
 				
                                 if($status == 'success'){
                                    echo "Thank you for contacting us"; 

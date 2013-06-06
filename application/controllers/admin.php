@@ -141,7 +141,7 @@ class Admin extends CI_Controller {
             ->display_as('content','Content')
             ->display_as('pid','parent id')
             ->display_as('filename','Banner')
-                ->display_as('categories_id','category type');
+            ->display_as('categories_id','category type');
         
         
         //below code is for edit and add
