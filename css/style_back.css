@@ -63,15 +63,15 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 
 .slideshow .buttons {display:none;}
 .slideshow .buttons {display:block; position:absolute; z-index:100; right:45%; bottom:0; margin:0;}
-.slideshow .buttons li {float:left; display:inline; width:15px; height:15px; margin:0; line-height:20px; background-image:url(../images/hov.png); background-repeat:no-repeat;}
-.slideshow .buttons li a {float:left; text-decoration:none; width:15px; height:15px; color:#fff; outline:0; background:url(../images/nor.png)0 0 no-repeat;}
-.slideshow ul.buttons li a:hover {text-decoration:none; background:url(../images/hov.png)0 0 no-repeat;}
-.slideshow ul.buttons li.active a {background:url(../images/act.png)0 0 no-repeat;}
+.slideshow .buttons li {float:left; display:inline; width:15px; height:15px; margin:0; line-height:20px; background:url(../images/hov.png) 0 0 no-repeat;}
+.slideshow .buttons li a {float:left; text-decoration:none; width:15px; height:15px; color:#fff; outline:0; background:url(../images/nor.png) 0 0 no-repeat;}
+.slideshow ul.buttons li a:hover {text-decoration:none; background:url(../images/hov.png) 0 0 no-repeat;}
+.slideshow ul.buttons li.active a {background:url(../images/act.png) 0 0 no-repeat;}
 
 
 .content_area {padding:20px 0 10px;}
 .content_area table {border:1px solid #ccc; padding:2px; margin:0 auto 20px; width:100%;}
-.content_area th {text-align:center; font-size:11px; font-weight:bold; background:#ccc; padding:2px; vertical-align:middle;}
+.content_area th {text-align:center; font-size:15px; font-weight:bold; background:#ccc; padding:2px; vertical-align:middle;}
 .content_area td {text-align:center; font-size:12px; font-weight:normal; padding:2px; vertical-align:top;}
 .content_area td.desrp {text-align:left;}
 .content_area td.desrp p {text-align:justify; line-height:18px; margin-bottom:20px;}
@@ -157,9 +157,16 @@ a.more_link {float:right; width:auto; margin-bottom:10px; font-size:11px; font-w
 
 #sideBar {width:39px; height:186px; float:left; display:block; position:fixed; left:0; top:120px; z-index:999;}
 .contact_form {margin:0; padding:5px 0 5px 5px; font-size:12px;}
-.contact_form li {margin-bottom:5px;}
+.contact_form li {margin-bottom:5px; background:none !important;}
 .contact_form li span{color:#f60;}
 .contact_form li label{color:#fff; clear:both; padding-left:2px; margin:0;}
 .contact_form input[type="text"], .contact_form textarea, .contact_form select {border:1px solid #1e4e64; background:#c4eded; padding:3px 5px; margin:0; width:95%; font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:normal; color:#063a3e;}
 .contact_form textarea {margin-bottom:0 !important;border:none;}
 .contact_form select {width:97% !important;border:none;}
+
+.job_form {margin:0; padding:0; font-size:12px;}
+.job_form td {text-align:left;}
+.job_form span{color:#f60;}
+.job_form label{color:#444; clear:both; padding-left:2px; margin:0; font-size:13px;}
+.job_form input[type="text"], input[type="file"], .job_form textarea, .job_form select {border:1px solid #ccc; background:#fcfcfc; padding:3px 5px; margin:0; width:90%; font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:normal; color:#063a3e;}
+.job_form select {width:93% !important;}

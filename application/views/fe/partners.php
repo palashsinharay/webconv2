@@ -123,28 +123,31 @@ echo "</pre>";*/
 
                     
                       <form method="post" class="contact_form" action="<?php echo site_url('');?>>">
-                          <table cellpadding="0" cellspacing="5" class="partner_tbl">
+                          <table cellpadding="0" cellspacing="10" class="partner_tbl">
+						  <tr><td></td></tr>
                               <tr>
-                                  <td>Full name : <span>*</span></td>
-                                  <td><input type="text" name="full_name" id="full_name" /></td>
+                                  <th width="25%">Full Name<span>*</span> : </th>
+                                  <td width="75%"><input type="text" name="full_name" id="full_name" /></td>
                               </tr>
                               <tr>
-                                  <td>Mobile Number : <span>*</span></td>
+                                  <th>Mobile Number<span>*</span> : </th>
                                   <td><input type="text" name="mob_no" id="mob_no" /></td>
                               </tr>
                               <tr>
-                                  <td>Email : <span>*</span></td>
+                                  <th>Email<span>*</span> : </th>
                                   <td><input type="text" name="email" id="email" /></td>
                               </tr>
                               <tr>
-                                  <td>Detail : <span>*</span></td>
+                                  <th>Detail<span>*</span> : </th>
                                   <td><textarea cols="" name="detail" id="detail" rows="3"></textarea></td>
                               </tr>
                               <tr>
-                                  <td colspan="2"><img src="<?php echo site_url('images/submit.png')?>" alt="Submit" title="Submit"  id="clickpartner"/></a></td>
+							  <td></td>
+                                  <td><img src="<?php echo site_url('images/submit.png')?>" alt="Submit" title="Submit"  id="clickpartner"/></td>
                               </tr>
                               <tr>
-                                  <td colspan="2"><div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600;"></div></td>
+							  <td></td>
+                                  <td><div class="success-message" style="display:none; color:#FF0000; font-size:12px; font-weight:600;"></div></td>
                               </tr>
 
                           </table>   

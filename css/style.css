@@ -11,7 +11,7 @@ h2 span {color:#137c83;}
 h4 {font-size:16px; padding-bottom:10px; color:#09C;}
 
 :focus{outline:0;}
-body{font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; background:#fff; color:#444343; font-weight:normal;}
+body{font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; background:#fff; color:#2c2b2b; font-weight:normal;}
 
 
 /* general */
@@ -23,7 +23,7 @@ a{text-decoration:none; outline:0; cursor:pointer; color:#137c83; font-weight:no
 a:hover{text-decoration:underline;}
 .botm_line { border-bottom:1px dashed #999; padding-bottom:10px; margin-bottom:5px;}
 
-/*input.text,select,textarea{background:#fff; border:solid 1px #e1e1e1; font-size:12px; color:#3e3e3e; padding:2px;}*/
+input.text,select,textarea{background:#fff; border:solid 1px #e1e1e1; font-size:12px; color:#3e3e3e; padding:2px;}
 
 /* Top Section */
 
@@ -52,7 +52,7 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 
 /* Banner Section */
 
-.banner {background:url(../images/banner_bg.png) 0 0 no-repeat; height:350px; margin-top:15px; padding:0 19px; position:relative; z-index:10;}
+.banner {background:url(../images/banner_bg.png) 0 0 no-repeat; height:350px; margin-top:5px; padding:0 19px; position:relative; z-index:10;}
 
 .banner_inner {background:url(../images/sub/shadow.png) 0 0 no-repeat; padding:5px; height:129px; width:990px; margin-top:15px; position:relative; z-index:10;}
 
@@ -103,8 +103,8 @@ a.more_link {float:right; width:auto; margin-bottom:10px; font-size:11px; font-w
 
 .features {list-style:none; margin:0; padding:0;}
 .features li {padding:10px 0; background:url(../images/btom_line.png) 0 bottom repeat-x;font-size:15px;}
-.features li a { background:url(../images/arrow.png) 5px 4px no-repeat; padding-left:25px; text-decoration:none; color:#8a8a8a; text-transform:uppercase;}
-.features li a:hover {color:#666;}
+.features li a { background:url(../images/arrow.png) 5px 4px no-repeat; padding-left:25px; text-decoration:none; color:#6f6f6f; text-transform:uppercase; font-weight:bold;}
+.features li a:hover {color:#333;}
 
 .news_pan {padding-bottom:15px; font-size:12px;}
 .news_pan h6 {color:#3c5a71; padding-bottom:10px; font-size:13px; font-weight:bold;}
@@ -170,3 +170,13 @@ a.more_link {float:right; width:auto; margin-bottom:10px; font-size:11px; font-w
 .job_form label{color:#444; clear:both; padding-left:2px; margin:0; font-size:13px;}
 .job_form input[type="text"], input[type="file"], .job_form textarea, .job_form select {border:1px solid #ccc; background:#fcfcfc; padding:3px 5px; margin:0; width:90%; font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:normal; color:#063a3e;}
 .job_form select {width:93% !important;}
+
+.partner_tbl {width:99%;}
+.partner_tbl th {background:none !important; text-align:right; color:#666; font-size:13px; vertical-align:top;} 
+.partner_tbl th span {color:#ff0000;}
+.partner_tbl td {text-align:left; padding-right:20px;}
+.partner_tbl input[type="text"], .partner_tbl textarea {border:1px solid #ccc; background:#fff;}
+
+.scroll_txt {height:25px; border:2px solid #c7c7c7; margin-top:5px; padding:5px 2px 0; background:#dfdfdf; font-weight:bold; color:#047878;}
+.scroll_txt a {font-weight:bold; text-decoration:none; color:#ff5000;}
+.scroll_txt a:hover {text-decoration:underline;}
