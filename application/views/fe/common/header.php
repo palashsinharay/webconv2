@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Webcon Consulting India Ltd.</title>
+<title><?php echo $site_data->sname; ?></title>
 <link href="<?php echo site_url('css/style.css')?>" rel="stylesheet" type="text/css" media="screen" />
 <link rel="stylesheet" type="text/css" href="<?php echo site_url('css/jquery.lightbox-0.4.css')?>" media="screen" />
 <link href="<?php echo site_url('css/style_popup.css')?>" rel="stylesheet" type="text/css" media="screen" />
@@ -35,7 +35,7 @@ $(function() {
 <div id="content_wrapper">
 <!-- top section start -->
 	<div class="topContainer">
-    <div class="logo"><a href="#"><img src="<?php echo site_url('images/logo.png')?>" alt="Webcon Consulting India Pvt. Ltd." title="Webcon Consulting India Pvt. Ltd." /></a></div>
+    <div class="logo"><a href="#"><img src="<?php echo site_url('images/logo.png')?>" alt="Webcon Consulting India Ltd." title="Webcon Consulting India Pvt. Ltd." /></a></div>
     <h1 class="logo_right"></h1>
     </div>
 <!-- top section end -->

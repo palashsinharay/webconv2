@@ -26,6 +26,7 @@ class Main extends CI_Controller {
     }
     public function _renderView($page,$data) {
                 
+                $data['site_data'] = $this->Cms->site_details();
                 $data['featured_menu'] = $this->Cms->get_featured_menu();
                 $data['news'] = $this->Cms->get_news_list(1);
                 $data['whoweare_links']=$this->Cms->get_page_basedonCatId('3,4');
@@ -38,6 +39,7 @@ class Main extends CI_Controller {
 
     public function _renderViewContact($page,$data) {
                 
+                $data['site_data'] = $this->Cms->site_details();
                 $data['featured_menu'] = $this->Cms->get_featured_menu();
                 $data['news'] = $this->Cms->get_news_list(1);
                 $data['whoweare_links']=$this->Cms->get_page_basedonCatId('3,4');
