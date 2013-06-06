@@ -68,6 +68,8 @@ class Main extends CI_Controller {
                         break;
                     case 'job':$this->recruitment();
                         break;
+                    case 'partner':$this->partners();
+                        break;
                     default:
                       $this->_renderView('page',$data);
                         break;
@@ -147,11 +149,17 @@ class Main extends CI_Controller {
         $this->_renderView('categories',$data);
     }
 	
-	public function contact_us()
+    public function contact_us()
     {
 				
                         $data['contact_us_data']=$this->Cms->get_page_content(19);
 		        $this->_renderViewContact('contact_us',$data);
+    }
+    public function partners()
+    {
+				
+                        $data['partners_data']=$this->Cms->get_page_content(34);
+                        $this->_renderViewContact('partners',$data);
     }
  	
         public function job_email()
@@ -233,7 +241,74 @@ class Main extends CI_Controller {
 			}
 		}
 
-        public function contactus_email()
+        public function partners_email()
+		{
+			try
+			{
+				unset($_POST['action']);
+				$posted=array();
+				$posted["full_name"]  	= trim($this->input->post("full_name"));
+				$posted["mob_no"]  	= trim($this->input->post("mob_no"));
+				$posted["email"]  	= trim($this->input->post("email"));
+				$posted["detail"]  	= trim($this->input->post("detail"));						
+				                               //echo "hello";
+//				echo "<pre>";
+//				print_r($posted);
+//				echo "</pre>";
+//				die();
+				                              
+				// Call model and insert data
+				//$this->form_validation->set_rules('fname', 'fname', 'trim|required|xss_clean');
+				//$this->form_validation->set_rules('lname', 'lname', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('full_name', 'full_name', 'trim|required|xss_clean');
+                                $this->form_validation->set_rules('mob_no', 'mob_no', 'trim|required|xss_clean');
+                                $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('detail', 'detail', 'trim|required|xss_clean');
+				$this->form_validation->set_message('required', 'Please fill in the fields');
+				if($this->form_validation->run() == FALSE)/////invalid
+				{
+				////////Display the add form with posted values within it////
+				$this->data["posted"]=$posted;
+				}
+				else
+				{
+				// ------------------ email send code start ------------------ //
+				
+				$message='
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+				<html xmlns="http://www.w3.org/1999/xhtml">
+				<head></head>
+				<body>
+				<table>
+				<tr><td>Name:</td><td>' .  $posted['full_name'].'</td></tr>
+				<tr><td>Email:</td><td>' . $posted["email"] . '</td></tr>
+				<tr><td>Mobile:</td><td>' . $posted["mob_no"] . '</td></tr>
+				<tr><td>Message:</td><td>' . nl2br($posted["detail"]) . '</td></tr>
+				</table>
+				</body>
+				</html>
+				';
+                                  			
+				
+				//$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+                                $status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+				
+                                if($status == 'success'){
+                                   echo "Thank you for contacting us"; 
+                                } else {
+                                   echo "Message sending failed !"; 
+                                }
+                                
+                                }								
+			}
+			catch(Exception $err_obj)
+			{
+					show_error($err_obj->getMessage());
+			}
+		}
+                
+                public function contactus_email()
 		{
 			try
 			{
@@ -400,7 +475,7 @@ class Main extends CI_Controller {
                                         $this->email->from($email_from, 'WEBCON');
                                         $this->email->to($email_to);
                                         $this->email->bcc('sahani.bunty9@gmail.com');
-                                        $this->email->subject('Contact Us Form WEBCON :');
+                                        $this->email->subject('WEBCON :');
                                         $this->email->message($message);
                                         if($filepath != NULL){
                                            $this->email->attach($filepath); 
