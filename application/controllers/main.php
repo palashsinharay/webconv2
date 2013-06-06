@@ -68,6 +68,8 @@ class Main extends CI_Controller {
                         break;
                     case 'job':$this->recruitment();
                         break;
+                    case 'partner':$this->partners();
+                        break;
                     default:
                       $this->_renderView('page',$data);
                         break;
@@ -141,13 +143,14 @@ class Main extends CI_Controller {
     }
     
 //for categories
-    public function categories($cat_id) {
+    public function categories($cat_id) 
+    {
         
         $data['categories_items'] =  $this->Cms->get_page_basedonCatId($cat_id);
         $this->_renderView('categories',$data);
     }
- 
 
+	
 
     public function contact_us()
     {
@@ -155,9 +158,15 @@ class Main extends CI_Controller {
                         $data['contact_us_data']=$this->Cms->get_page_content(19);
 		        $this->_renderViewContact('contact_us',$data);
     }
- 	
+    public function partners()
+    {
+				
+                        $data['partners_data']=$this->Cms->get_page_content(34);
+                        $this->_renderViewContact('partners',$data);
+    }
+
     public function job_email()
-            {
+    {
                     //print_r($_FILES['fileField']);
                     //die();
                     $this->upload->do_upload('fileField');
@@ -222,6 +231,7 @@ class Main extends CI_Controller {
                             ';
                             //$this->email->attach($posted['fileField']);
                             $status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
+                           // $status = $this->email_send($message,'enquiry@webcon.in',$posted["email"],$data['full_path']);
                             if($status == 'success'){
                                 $this->recruitment_apply($posted["jobid"],'job application successfully submitted');
                             }
@@ -234,8 +244,144 @@ class Main extends CI_Controller {
                     }
             }
 
+    public function partners_email()
+    {
+                    try
+                    {
+                            unset($_POST['action']);
+                            $posted=array();
+                            $posted["full_name"]  	= trim($this->input->post("full_name"));
+                            $posted["mob_no"]  	= trim($this->input->post("mob_no"));
+                            $posted["email"]  	= trim($this->input->post("email"));
+                            $posted["detail"]  	= trim($this->input->post("detail"));						
+                                                           //echo "hello";
+//				echo "<pre>";
+//				print_r($posted);
+//				echo "</pre>";
+//				die();
+
+                            // Call model and insert data
+                            //$this->form_validation->set_rules('fname', 'fname', 'trim|required|xss_clean');
+                            //$this->form_validation->set_rules('lname', 'lname', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('full_name', 'full_name', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('mob_no', 'mob_no', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('detail', 'detail', 'trim|required|xss_clean');
+                            $this->form_validation->set_message('required', 'Please fill in the fields');
+                            if($this->form_validation->run() == FALSE)/////invalid
+                            {
+                            ////////Display the add form with posted values within it////
+                            $this->data["posted"]=$posted;
+                            }
+                            else
+                            {
+                            // ------------------ email send code start ------------------ //
+
+                            $message='
+                            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                            <html xmlns="http://www.w3.org/1999/xhtml">
+                            <head></head>
+                            <body>
+                            <table>
+                            <tr><td>Name:</td><td>' .  $posted['full_name'].'</td></tr>
+                            <tr><td>Email:</td><td>' . $posted["email"] . '</td></tr>
+                            <tr><td>Mobile:</td><td>' . $posted["mob_no"] . '</td></tr>
+                            <tr><td>Message:</td><td>' . nl2br($posted["detail"]) . '</td></tr>
+                            </table>
+                            </body>
+                            </html>
+                            ';
+
+
+                            //$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+                            $status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+
+                            if($status == 'success'){
+                               echo "Thank you for contacting us"; 
+                            } else {
+                               echo "Message sending failed !"; 
+                            }
+
+                            }								
+                    }
+                    catch(Exception $err_obj)
+                    {
+                                    show_error($err_obj->getMessage());
+                    }
+            }
+
     public function contactus_email()
-		{
+    {
+                    try
+                    {
+                            unset($_POST['action']);
+                            $posted=array();
+                            $posted["full_name"]  	= trim($this->input->post("full_name"));
+                            $posted["mob_no"]  	= trim($this->input->post("mob_no"));
+                            $posted["email"]  	= trim($this->input->post("email"));
+                            $posted["addr"]      = trim($this->input->post("addr"));
+                            $posted["state"]  	= trim($this->input->post("state"));
+                            $posted["comment"]  	= trim($this->input->post("comment"));						
+                            /*                                echo "hello";
+                            echo "<pre>";
+                            print_r($posted);
+                            echo "</pre>";
+                            die();
+                            */                                
+                            // Call model and insert data
+                            //$this->form_validation->set_rules('fname', 'fname', 'trim|required|xss_clean');
+                            //$this->form_validation->set_rules('lname', 'lname', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('comment', 'comment', 'trim|required|xss_clean');
+                            $this->form_validation->set_message('required', 'Please fill in the fields');
+                            if($this->form_validation->run() == FALSE)/////invalid
+                            {
+                            ////////Display the add form with posted values within it////
+                            $this->data["posted"]=$posted;
+                            }
+                            else
+                            {
+                            // ------------------ email send code start ------------------ //
+
+                            $message='
+                            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                            <html xmlns="http://www.w3.org/1999/xhtml">
+                            <head></head>
+                            <body>
+                            <table>
+                            <tr><td>Name:</td><td>' .  $posted['full_name'].'</td></tr>
+                            <tr><td>Email:</td><td>' . $posted["email"] . '</td></tr>
+                            <tr><td>Mobile:</td><td>' . $posted["mob_no"] . '</td></tr>
+                            <tr><td>Address:</td><td>' . $posted["addr"] . '</td></tr>
+                            <tr><td>State:</td><td>' . $posted["state"] . '</td></tr>
+                            <tr><td>Message:</td><td>' . nl2br($posted["comment"]) . '</td></tr>
+                            </table>
+                            </body>
+                            </html>
+                            ';
+
+
+                            //$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+                            $status = $this->email_send($message,'contact@webcon.in',$posted["email"]);
+
+                            if($status == 'success'){
+                               echo "Thank you for contacting us"; 
+                            } else {
+                               echo "Message sending failed !"; 
+                            }
+
+                            }								
+                    }
+                    catch(Exception $err_obj)
+                    {
+                                    show_error($err_obj->getMessage());
+                    }
+            }
+
+    public function enquiry_email()
+    {
 			try
 			{
 				unset($_POST['action']);
@@ -243,21 +389,31 @@ class Main extends CI_Controller {
 				$posted["full_name"]  	= trim($this->input->post("full_name"));
 				$posted["mob_no"]  	= trim($this->input->post("mob_no"));
 				$posted["email"]  	= trim($this->input->post("email"));
-				$posted["addr"]      = trim($this->input->post("addr"));
-				$posted["state"]  	= trim($this->input->post("state"));
-				$posted["comment"]  	= trim($this->input->post("comment"));						
-				/*                                echo "hello";
-				echo "<pre>";
-				print_r($posted);
-				echo "</pre>";
-				die();
-				*/                                
+				$posted["status"]      = trim($this->input->post("status"));
+				$posted["enq_title"]  	= trim($this->input->post("enq_title"));
+				$posted["subject1"]  	= trim($this->input->post("subject1"));						
+				$posted["enq_detail"]  	= trim($this->input->post("enq_detail"));
+				$posted["subject2"]  	= trim($this->input->post("subject2"));						
+
+//                                echo "hello";
+//				echo "<pre>";
+//				print_r($posted);
+//				echo "</pre>";
+//				die();
+				                                
 				// Call model and insert data
 				//$this->form_validation->set_rules('fname', 'fname', 'trim|required|xss_clean');
 				//$this->form_validation->set_rules('lname', 'lname', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('full_name', 'full_name', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('mob_no', 'mob_no', 'trim|required|xss_clean');
 				$this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
-				$this->form_validation->set_rules('comment', 'comment', 'trim|required|xss_clean');
-				$this->form_validation->set_message('required', 'Please fill in the fields');
+				$this->form_validation->set_rules('status', 'status', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('enq_title', 'enq_title', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('subject1', 'subject1', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('enq_detail', 'enq_detail', 'trim|required|xss_clean');
+                                $this->form_validation->set_rules('subject2', 'subject2', 'trim|required|xss_clean');
+
+                                $this->form_validation->set_message('required', 'Please fill in the fields');
 				if($this->form_validation->run() == FALSE)/////invalid
 				{
 				////////Display the add form with posted values within it////
@@ -277,16 +433,20 @@ class Main extends CI_Controller {
 				<tr><td>Name:</td><td>' .  $posted['full_name'].'</td></tr>
 				<tr><td>Email:</td><td>' . $posted["email"] . '</td></tr>
 				<tr><td>Mobile:</td><td>' . $posted["mob_no"] . '</td></tr>
-				<tr><td>Address:</td><td>' . $posted["addr"] . '</td></tr>
-				<tr><td>State:</td><td>' . $posted["state"] . '</td></tr>
-				<tr><td>Message:</td><td>' . nl2br($posted["comment"]) . '</td></tr>
+				<tr><td>Enquiry Status:</td><td>' . $posted["status"] . '</td></tr>
+				<tr><td>Enquiry Title:</td><td>' . $posted["enq_title"] . '</td></tr>
+				<tr><td>Enquiry Subject:</td><td>' .  $posted['subject1'].'</td></tr>
+				<tr><td>Enquiry Detail:</td><td>' . $posted["enq_detail"] . '</td></tr>
+				<tr><td>Mode of Contact:</td><td>' . $posted["subject2"] . '</td></tr>
+				
 				</table>
 				</body>
 				</html>
 				';
                                   			
 				
-				$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+				//$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+                                $status = $this->email_send($message,'enquiry@webcon.in',$posted["email"]);
 				
                                 if($status == 'success'){
                                    echo "Thank you for contacting us"; 
@@ -300,50 +460,49 @@ class Main extends CI_Controller {
 			{
 					show_error($err_obj->getMessage());
 			}
-		}
+		}               
 		
 		
 		
-		
-		############# contact us email send function Start #############
-        public function email_send($message,$email_to,$email_from,$filepath = null)
-        {
-	try
-	{
-                       
-                                        $this->load->library( 'email' );
-                                        $email_setting  = array('mailtype'=>'html');
-                                        $this->email->initialize($email_setting);
-                                        //$email_to    = 'siddharth@satyajittech.com';
-                                        //$email_from  =  $posted["email"];
-                                        $this->email->from($email_from, 'WEBCON');
-                                        $this->email->to($email_to);
-                                        $this->email->bcc('sahani.bunty9@gmail.com');
-                                        $this->email->subject('Contact Us Form WEBCON :');
-                                        $this->email->message($message);
-                                        if($filepath != NULL){
-                                           $this->email->attach($filepath); 
-                                        }
-                                        
-                                        if($this->email->send())
-                                        {
-                                                     return 'success';
-                                                     
-                                        }					
+    ############# contact us email send function Start #############
+    public function email_send($message,$email_to,$email_from,$filepath = null)
+    {
+    try
+    {
 
-                     // ------------------ email send code end ------------------//
-									
-			   					
-				
-	
-	}
-	catch(Exception $err_obj)
-	{
-			show_error($err_obj->getMessage());
-	}
-	
- }
-        ############# contact us email send function  End #############
+                                    $this->load->library( 'email' );
+                                    $email_setting  = array('mailtype'=>'html');
+                                    $this->email->initialize($email_setting);
+                                    //$email_to    = 'siddharth@satyajittech.com';
+                                    //$email_from  =  $posted["email"];
+                                    $this->email->from($email_from, 'WEBCON');
+                                    $this->email->to($email_to);
+                                    $this->email->bcc('sahani.bunty9@gmail.com');
+                                    $this->email->subject('WEBCON :');
+                                    $this->email->message($message);
+                                    if($filepath != NULL){
+                                       $this->email->attach($filepath); 
+                                    }
+
+                                    if($this->email->send())
+                                    {
+                                                 return 'success';
+
+                                    }					
+
+                 // ------------------ email send code end ------------------//
+
+
+
+
+    }
+    catch(Exception $err_obj)
+    {
+                    show_error($err_obj->getMessage());
+    }
+
+    }
+    ############# contact us email send function  End #############
 	
 	
 

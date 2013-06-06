@@ -71,7 +71,7 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 
 .content_area {padding:20px 0 10px;}
 .content_area table {border:1px solid #ccc; padding:2px; margin:0 auto 20px; width:100%;}
-.content_area th {text-align:center; font-size:11px; font-weight:bold; background:#ccc; padding:2px; vertical-align:middle;}
+.content_area th {text-align:center; font-size:15px; font-weight:bold; background:#ccc; padding:2px; vertical-align:middle;}
 .content_area td {text-align:center; font-size:12px; font-weight:normal; padding:2px; vertical-align:top;}
 .content_area td.desrp {text-align:left;}
 .content_area td.desrp p {text-align:justify; line-height:18px; margin-bottom:20px;}

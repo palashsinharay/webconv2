@@ -50,7 +50,8 @@ class Cms extends CI_Model {
 		return $this->result[0];
 
 	}
-        
+	
+ 
         //function to get featured menu list
         function get_featured_menu() {
                 $this->db->select('*');
