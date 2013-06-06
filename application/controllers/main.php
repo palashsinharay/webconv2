@@ -167,8 +167,8 @@ class Main extends CI_Controller {
 
     public function job_email()
     {
-                    //print_r($_FILES['fileField']);
-                    //die();
+//                    print_r($_FILES['fileField']);
+//                    die();
                     $this->upload->do_upload('fileField');
                     $data = $this->upload->data();
 
@@ -186,8 +186,8 @@ class Main extends CI_Controller {
                             $posted["state"]  	= trim($this->input->post("state"));	
                             $posted["city"]  	= trim($this->input->post("city"));	
                             $posted["last_qulifc"]  	= trim($this->input->post("last_qulifc"));	
-                            $posted["fileField"]  	= trim($this->input->post("fileField"));							
-                            /*                                echo "hello";
+                            $posted["fileField"]  	= $_FILES['fileField']['name'];							
+                            /*                               echo "hello";
                             echo "<pre>";
                             print_r($posted);
                             echo "</pre>";
@@ -208,6 +208,19 @@ class Main extends CI_Controller {
                             }
                             else
                             {
+                            $info=array();
+                            $info['jobid']    		= $posted['jobid'];
+                            $info["post_app"]           = $posted['post_app'];
+                            $info["sl_no"]            = $posted['sl_no'];
+                            $info["name"]             = $posted['name'];
+                            $info["mob"]              = $posted['mob'];
+                            $info["email"]            = $posted['email'];
+                            $info["addr"]             = $posted['addr'];
+                            $info["state"]            = $posted['state'];	
+                            $info["city"]             = $posted['city'];	
+                            $info["last_qulifc"]  	= $posted['last_qulifc'];	
+                            $info["fileField"]  	= $posted['fileField'];							
+                             
                             // ------------------ email send code start ------------------ //
 
                             $message='
@@ -229,10 +242,12 @@ class Main extends CI_Controller {
                             </body>
                             </html>
                             ';
+                        // die();
                             //$this->email->attach($posted['fileField']);
                             $status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
                            // $status = $this->email_send($message,'enquiry@webcon.in',$posted["email"],$data['full_path']);
                             if($status == 'success'){
+                                $i_newid=$this->Cms->add_recruitment_data($info);
                                 $this->recruitment_apply($posted["jobid"],'job application successfully submitted');
                             }
 
@@ -292,7 +307,7 @@ class Main extends CI_Controller {
                             </body>
                             </html>
                             ';
-
+                           
 
                             //$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
                             $status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
@@ -470,7 +485,7 @@ class Main extends CI_Controller {
     try
     {
 
-                                    $this->load->library( 'email' );
+                                    $this->load->library('email');
                                     $email_setting  = array('mailtype'=>'html');
                                     $this->email->initialize($email_setting);
                                     //$email_to    = 'siddharth@satyajittech.com';
@@ -482,6 +497,9 @@ class Main extends CI_Controller {
                                     $this->email->message($message);
                                     if($filepath != NULL){
                                        $this->email->attach($filepath); 
+                                      // echo $message;
+                                      // echo "test";
+                                      // die;
                                     }
 
                                     if($this->email->send())

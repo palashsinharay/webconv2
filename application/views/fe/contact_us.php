@@ -7,7 +7,7 @@ echo "</pre>";*/
 <script type="text/javascript">
 $(document).ready(function() {
 
-$('#send').click(function() {
+$('#sendcontact').click(function() {
 
 var form_data = {
 full_name 	: $('#full_name').val(),
@@ -173,7 +173,7 @@ function validateEmail(user_email){
                             </select></li>
                             <li><label>Comment</label></li>
                             <li><textarea cols="" name="comment" id="comment" rows="3"></textarea></li>
-                            <li><a href="#"><img src="<?php echo site_url('images/submit.png')?>" alt="Submit" title="Submit"  id="send"/></a></li>
+                            <li><a href="#"><img src="<?php echo site_url('images/submit.png')?>" alt="Submit" title="Submit"  id="sendcontact"/></a></li>
                             </ul>
 							<div class="success-message" style="display:none; color:#FFFFFF; font-size:14px; font-weight:600;"></div>
       </form>

@@ -13,6 +13,7 @@ class Cms extends CI_Model {
 	public $_categories = 'categories';
 	public $_lowerSlider = 'lower_slider';
         public $_user = 'users';
+        public $_carreer = 'carreer';
 	public $result = null;
 
 	function __construct()
@@ -188,6 +189,50 @@ class Cms extends CI_Model {
 
 
         }
+        
+        
+public function add_recruitment_data($info)
+    {
+        try
+        {
+       	  $i_ret_=0; ////Returns false
+            if(!empty($info))
+            {
+                                $s_qry="Insert Into ".$this->_carreer." Set ";
+                                $s_qry.=" names=? ";
+                                $s_qry.=", address=? ";
+                                $s_qry.=", email=? ";
+                                $s_qry.=", city=? ";
+				$s_qry.=", state=? ";
+				$s_qry.=", phone=? ";
+				$s_qry.=", qualification=? ";
+				$s_qry.=", post=? ";
+				$s_qry.=", path=? ";
+                                $this->db->query($s_qry,array(
+                                $info["name"],
+                                $info["addr"],
+                                $info["email"],
+                                $info["city"],
+                                $info["state"],
+                                $info["mob"],
+                                $info["last_qulifc"],
+                                $info["post_app"],
+                                $info["fileField"],
+             ));
+                //echo $this->db->last_query();
+                                $i_ret_=$this->db->insert_id();     
+                
+            }
+            unset($s_qry, $info );
+            return $i_ret_;
+		
+			
+        }
+        catch(Exception $err_obj)
+        {
+            show_error($err_obj->getMessage());
+        }          
+    }        
         
 
 	}	
