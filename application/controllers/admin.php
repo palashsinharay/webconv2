@@ -413,6 +413,37 @@ class Admin extends CI_Controller {
     $this->_example_output($output);
 }
 
+    function  site_configure() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('site_configure')
+         ->set_subject('Site Configure');
+    
+    $crud->columns('sname','admin_email','notice')
+        ->display_as('sname','Site Title')
+        ->display_as('admin_email','Admin Email')
+        ->display_as('notice','notice on home page');
+    
+        $crud->unset_add();
+    //below code is for edit and add
+    //$crud->fields('category_name','type');
+    //$crud->required_fields('category_name','type');
+
+
+
+    //below is validation
+    //$crud->set_rules('lastName','last name nnn','numeric|required')
+    //     ->set_rules('firstName','first name nnn','integer|required')
+    //     ->set_rules('email','email nnn','valid_email|required');
+    //below code is for file upload
+    //$crud->set_field_upload('filename','assets/uploads/files');
+
+    $output = $crud->render();
+    $this->_example_output($output);
+}
+
 
 
 }

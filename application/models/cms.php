@@ -4,7 +4,8 @@
 
 class Cms extends CI_Model {
 
-	public $_table = 'cms_page';
+	public $_cms = 'cms_page';
+        public $_site = 'site_configure';
 	public $_meduiatable = 'media_gallery';
 	public $_newstable = 'news';
 	public $_job = 'job';
@@ -20,6 +21,19 @@ class Cms extends CI_Model {
 		//parent::Model();
 		parent::__construct();
 	}
+        
+        //function for getting site details
+        function site_details() {
+            $query = $this->db->get_where($this->_site, array('id' => 1));
+                $this->result = $query->result();
+                return $this->result[0];
+                
+//                if($this->result != NULL){
+//                    return $this->result[0];
+//                }else{
+//                    return FALSE;
+//                }
+        }
 
         
         //function for getting cms page content
@@ -42,7 +56,7 @@ class Cms extends CI_Model {
 	function get_page_content($id)
 	{
 
-		$query = $this->db->get_where($this->_table,array('id =' => $id));
+		$query = $this->db->get_where($this->_cms,array('id =' => $id));
 		$this->result = $query->result();
 		/*echo "<pre>";
 		print_r($this->result);
@@ -55,8 +69,8 @@ class Cms extends CI_Model {
         //function to get featured menu list
         function get_featured_menu() {
                 $this->db->select('*');
-                $this->db->from($this->_table);
-                $this->db->join('featured_menu', 'featured_menu.id ='.$this->_table.'.id');
+                $this->db->from($this->_cms);
+                $this->db->join('featured_menu', 'featured_menu.id ='.$this->_cms.'.id');
                 $this->db->where('featured_menu.status', 1); 
                 $query = $this->db->get();
             	
@@ -143,7 +157,7 @@ class Cms extends CI_Model {
                 
 		$query = $this->db->where_in('categories_id', explode(',',$cat_ids));
 		//$query = $this->db->order_by("date", "desc"); 
-		$query = $this->db->get($this->_table);
+		$query = $this->db->get($this->_cms);
 		
 		$this->result = $query->result();
 	
