@@ -383,6 +383,36 @@ class Admin extends CI_Controller {
         $this->_example_output($output);
 }
 
+    function  categories() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('categories')
+        ->set_subject('Categories')
+        ->columns('category_name','type');
+        //->display_as('menutitle','Title')
+       // ->display_as('content','Content')
+       // ->display_as('pid','parent id');
+
+
+    //below code is for edit and add
+    $crud->fields('category_name','type');
+    $crud->required_fields('category_name','type');
+
+
+
+    //below is validation
+    //$crud->set_rules('lastName','last name nnn','numeric|required')
+    //     ->set_rules('firstName','first name nnn','integer|required')
+    //     ->set_rules('email','email nnn','valid_email|required');
+    //below code is for file upload
+    //$crud->set_field_upload('filename','assets/uploads/files');
+
+    $output = $crud->render();
+    $this->_example_output($output);
+}
+
 
 
 }
