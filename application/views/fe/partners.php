@@ -123,7 +123,7 @@ echo "</pre>";*/
 
                     
                       <form method="post" class="contact_form" action="<?php echo site_url('');?>>">
-                          <table>
+                          <table cellpadding="0" cellspacing="5" class="partner_tbl">
                               <tr>
                                   <td>Full name : <span>*</span></td>
                                   <td><input type="text" name="full_name" id="full_name" /></td>
