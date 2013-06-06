@@ -246,8 +246,8 @@ class Main extends CI_Controller {
                             ';
                         // die();
                             //$this->email->attach($posted['fileField']);
-                            $status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
-                           // $status = $this->email_send($message,'enquiry@webcon.in',$posted["email"],$data['full_path']);
+                            //$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
+                            $status = $this->email_send($message,'enquiry@webcon.in',$posted["email"],$data['full_path']);
                             if($status == 'success'){
                                 $i_newid=$this->Cms->add_recruitment_data($info);
                                 $this->recruitment_apply($posted["jobid"],'job application successfully submitted');

@@ -444,6 +444,38 @@ class Admin extends CI_Controller {
     $this->_example_output($output);
 }
 
+    function  carreer() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('carreer')
+         ->set_subject('Job Application');
+    
+    $crud->columns('names','address','email','city','state','phone','qualification','post')
+        ->display_as('names','Name')
+        ->display_as('path','CV');
+        
+    
+    
+        $crud->unset_add();
+    //below code is for edit and add
+    $crud->fields('names','address','email','city','state','phone','qualification','post');
+    //$crud->required_fields('category_name','type');
+
+
+
+    //below is validation
+    //$crud->set_rules('lastName','last name nnn','numeric|required')
+    //     ->set_rules('firstName','first name nnn','integer|required')
+    //     ->set_rules('email','email nnn','valid_email|required');
+    //below code is for file upload
+    //$crud->set_field_upload('filename','assets/uploads/files');
+
+    $output = $crud->render();
+    $this->_example_output($output);
+}
+
 
 
 }
