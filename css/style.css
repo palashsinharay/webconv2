@@ -47,6 +47,7 @@ ul li.drop .drop_pan {position:absolute; height:auto; display:none; left:0; top:
 ul li.drop:hover .drop_pan {display:block; font-family:Arial, Helvetica, sans-serif; }
 ul li.drop .drop_pan li {list-style:none; border:none; float:none; padding:0; margin:0;}
 ul li.drop .drop_pan li a, ul li.drop .drop_pan li a:hover {font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; color:#205b58; display:block; width:100%; text-align:left; text-transform:capitalize !important; padding:10px; text-decoration:none;}
+.subactive{font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; color:#205b58; display:block; width:100%; text-align:left; text-transform:capitalize !important; padding:10px; text-decoration:none;}
 ul li.drop .drop_pan li a {border-bottom:1px dashed #205b58; background:#88e5f5;}
 ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none; border-bottom:1px dashed #205b58;}
 

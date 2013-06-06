@@ -35,7 +35,7 @@ $(function() {
 <div id="content_wrapper">
 <!-- top section start -->
 	<div class="topContainer">
-    <div class="logo"><a href="#"><img src="<?php echo site_url('images/logo.png')?>" alt="Webcon Consulting India Ltd." title="Webcon Consulting India Pvt. Ltd." /></a></div>
+    <div class="logo"><a href="#"><img src="<?php echo site_url('images/logo.png')?>" alt="Webcon Consulting India Ltd." title="Webcon Consulting India Ltd." /></a></div>
     <h1 class="logo_right"></h1>
     </div>
 <!-- top section end -->
@@ -44,40 +44,39 @@ $(function() {
 <div class="navigaion_pan">
 
 <ul>
-
-<li><a href="<?php echo site_url('main/index');?>" class="active">Home</a></li>
-<li class="drop"><a href="#<?php //echo site_url('main/page/1');?>">Who We Are</a>
+<?php 
+       $url_arr=array_reverse(explode('/',$_SERVER['PHP_SELF']),FALSE);  
+//       echo $url_arr[0];
+//       echo $url_arr[1];
+?>
+<li><a href="<?php echo site_url('main/index');?>" class="<?php echo $url_arr[0]=='index'?'active':'';?>">Home</a></li>
+<li class="drop"><a id="Who We Are" class="<?php echo $url_arr[1]=='page'?'active':'';?>" href="#<?php //echo site_url('main/page/1');?>">Who We Are</a>
 <div class="drop_pan" style="width:200px;">
 <ul>
 <?php foreach($whoweare_links as $values):?>
-<li><a href="<?php echo site_url('main/page/'.$values->id);?>"><?php echo $values->menutitle;?></a></li>
+<li><a id="<?php echo $values->id;?>" class="<?php echo $url_arr[0]==$values->id?'subactive':'';?>" href="<?php echo site_url('main/page/'.$values->id);?>"><?php echo $values->menutitle;?></a></li>
 <?php endforeach;?>
 </ul>
 </div>
 </li>
 
 
-<li class="drop"><a href="<?php echo base_url();?>main/page/17">What We Do</a>
+<li class="drop"><a class="<?php echo $url_arr[1]=='categories'?'active':'';?>" href="<?php echo base_url();?>main/page/17">What We Do</a>
 <div class="drop_pan" style="width:160px;">
 <ul>
     
     <?php foreach($whatwedo_links as $values):?>
     <?php //echo "<pre>"; print_r($values); echo "</pre>" ;?>
-    <li><a href="<?php echo site_url('main/categories/'.$values->categories_id);?>"><?php echo $values->category_name;?></a></li>
+    <li><a id="<?php echo $values->categories_id;?>" class="<?php echo $url_arr[0]==$values->categories_id?'subactive':'';?>" href="<?php echo site_url('main/categories/'.$values->categories_id);?>"><?php echo $values->category_name;?></a></li>
     <?php endforeach;?>
-<!--<li><a href="<?php //echo site_url('main/page/29');?>">Skill Development Training</a></li>
-<li><a href="<?php //echo site_url('main/page/30');?>">Implementing CSR Initiative</a></li>
-<li><a href="<?php //echo site_url('main/categories/consultancyservices');?>">Consultancy Services</a></li>
-<li><a href="<?php //echo site_url('main/categories/microenterprisedev');?>">Micro Enterprise Dev</a></li>
-<li><a href="<?php //echo site_url('main/categories/specialisedservices');?>">Specialised Services</a></li>-->
 </ul>
 </div>
 </li>
 
-<li><a href="<?php echo site_url('main/recruitment')?>">Recruitment</a></li>
-<li><a href="<?php echo site_url('main/gallery')?>">Photo Gallery</a></li>
-<li><a href="<?php echo site_url('main/resource_center_list')?>">Resouce Centre</a></li>
-<li><a href="<?php echo site_url('main/contact_us');?>">Contact Us</a></li>
+<li><a class="<?php echo $url_arr[0]=='recruitment'?'active':'';?>" href="<?php echo site_url('main/recruitment')?>">Recruitment</a></li>
+<li><a class="<?php echo $url_arr[0]=='gallery'?'active':'';?>" href="<?php echo site_url('main/gallery')?>">Photo Gallery</a></li>
+<li><a class="<?php echo $url_arr[0]=='resource_center_list'?'active':'';?>" href="<?php echo site_url('main/resource_center_list')?>">Resouce Centre</a></li>
+<li><a class="<?php echo $url_arr[0]=='contact_us'?'active':'';?>" href="<?php echo site_url('main/contact_us');?>">Contact Us</a></li>
 </ul>
 
 
