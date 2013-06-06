@@ -136,23 +136,33 @@ class Cms extends CI_Model {
 		return $this->result;
 	}
         
-        function get_page_basedonCatId($catName) 
+        function get_page_basedonCatId($cat_ids) 
         {
  		
-		$query = $this->db->where('category_name', $catName);
-		//$query = $this->db->order_by("date", "desc"); 
-		$query = $this->db->get($this->_categories);
-		
-		$this->result = $query->result();       
-		$cat_id=$this->result[0]->categories_id;
-	
-                //get list of all page based on cat_id 
-		$query = $this->db->where('categories_id', $cat_id);
+                //get list of all page based on cat_id s
+                
+		$query = $this->db->where_in('categories_id', explode(',',$cat_ids));
 		//$query = $this->db->order_by("date", "desc"); 
 		$query = $this->db->get($this->_table);
 		
 		$this->result = $query->result();
 	
+		return $this->result;
+
+		   
+        }
+   /*
+    * get caterory name and id based on type
+    */     
+        function get_category_nameAndId($cat_type) 
+        {
+ 		
+		$query = $this->db->where('type', $cat_type);
+		//$query = $this->db->order_by("date", "desc"); 
+		$query = $this->db->get($this->_categories);
+		
+		$this->result = $query->result();       
+		
 		return $this->result;
 
 		   
