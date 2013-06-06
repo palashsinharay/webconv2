@@ -60,11 +60,16 @@ $(function() {
 <li class="drop"><a href="<?php echo base_url();?>main/page/17">What We Do</a>
 <div class="drop_pan" style="width:160px;">
 <ul>
-<li><a href="<?php echo site_url('main/page/29');?>">Skill Development Training</a></li>
-<li><a href="<?php echo site_url('main/page/30');?>">Implementing CSR Initiative</a></li>
-<li><a href="<?php echo site_url('main/categories/consultancyservices');?>">Consultancy Services</a></li>
-<li><a href="<?php echo site_url('main/categories/microenterprisedev');?>">Micro Enterprise Dev</a></li>
-<li><a href="<?php echo site_url('main/categories/specialisedservices');?>">Specialised Services</a></li>
+    
+    <?php foreach($whatwedo_links as $values):?>
+    <?php //echo "<pre>"; print_r($values); echo "</pre>" ;?>
+    <li><a href="<?php echo site_url('main/categories/'.$values->categories_id);?>"><?php echo $values->category_name;?></a></li>
+    <?php endforeach;?>
+<!--<li><a href="<?php //echo site_url('main/page/29');?>">Skill Development Training</a></li>
+<li><a href="<?php //echo site_url('main/page/30');?>">Implementing CSR Initiative</a></li>
+<li><a href="<?php //echo site_url('main/categories/consultancyservices');?>">Consultancy Services</a></li>
+<li><a href="<?php //echo site_url('main/categories/microenterprisedev');?>">Micro Enterprise Dev</a></li>
+<li><a href="<?php //echo site_url('main/categories/specialisedservices');?>">Specialised Services</a></li>-->
 </ul>
 </div>
 </li>

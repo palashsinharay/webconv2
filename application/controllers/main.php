@@ -28,7 +28,8 @@ class Main extends CI_Controller {
                 
                 $data['featured_menu'] = $this->Cms->get_featured_menu();
                 $data['news'] = $this->Cms->get_news_list(1);
-                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('whoweare');
+                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('3,4');
+                $data['whatwedo_links'] = $this->Cms->get_category_nameAndId('what_we_do');
                 
                 $this->load->view('fe/common/header.php',$data);
                 $this->load->view('fe/'.$page.'.php',$data);
@@ -39,15 +40,14 @@ class Main extends CI_Controller {
                 
                 $data['featured_menu'] = $this->Cms->get_featured_menu();
                 $data['news'] = $this->Cms->get_news_list(1);
-                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('whoweare');
+                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('3,4');
+                $data['whatwedo_links'] = $this->Cms->get_category_nameAndId('what_we_do');
                 
                 $this->load->view('fe/common/header_contact.php',$data);
                 $this->load->view('fe/'.$page.'.php',$data);
                 $this->load->view('fe/common/footer.php',$data);
     }
 
-    
-    
     public function index($id = 1)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
@@ -141,98 +141,100 @@ class Main extends CI_Controller {
     }
     
 //for categories
-    public function categories($catName) {
+    public function categories($cat_id) {
         
-        $data['categories_items'] =  $this->Cms->get_page_basedonCatId($catName);
+        $data['categories_items'] =  $this->Cms->get_page_basedonCatId($cat_id);
         $this->_renderView('categories',$data);
     }
-	
-	public function contact_us()
+ 
+
+
+    public function contact_us()
     {
 				
                         $data['contact_us_data']=$this->Cms->get_page_content(19);
 		        $this->_renderViewContact('contact_us',$data);
     }
  	
-        public function job_email()
-		{
-			//print_r($_FILES['fileField']);
-			//die();
-                        $this->upload->do_upload('fileField');
-                        $data = $this->upload->data();
-                     
-			try
-			{
-				unset($_POST['action']);
-				$posted=array();
-                                $posted["jobid"]  = trim($this->input->post("jobid"));
-				$posted["post_app"]  	= trim($this->input->post("post_app"));
-				$posted["sl_no"]  	= trim($this->input->post("sl_no"));
-				$posted["name"]  	= trim($this->input->post("name"));
-				$posted["mob"]      = trim($this->input->post("mob"));
-				$posted["email"]  	= trim($this->input->post("email"));
-				$posted["addr"]  	= trim($this->input->post("addr"));
-				$posted["state"]  	= trim($this->input->post("state"));	
-				$posted["city"]  	= trim($this->input->post("city"));	
-				$posted["last_qulifc"]  	= trim($this->input->post("last_qulifc"));	
-				$posted["fileField"]  	= trim($this->input->post("fileField"));							
-				/*                                echo "hello";
-				echo "<pre>";
-				print_r($posted);
-				echo "</pre>";
-				die();
-				*/                                
-				// Call model and insert data
-				//$this->form_validation->set_rules('fname', 'fname', 'trim|required|xss_clean');
-				//$this->form_validation->set_rules('lname', 'lname', 'trim|required|xss_clean');
-				$this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
-				$this->form_validation->set_rules('name', 'name', 'trim|required|xss_clean');
-				$this->form_validation->set_rules('mob', 'mob', 'trim|required|xss_clean');
-				$this->form_validation->set_message('required', 'Please fill in the fields');
-				
-				if($this->form_validation->run() == FALSE)/////invalid
-				{
-				////////Display the add form with posted values within it////
-				$this->data["posted"]=$posted;
-				}
-				else
-				{
-				// ------------------ email send code start ------------------ //
-				
-				$message='
-				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-				<html xmlns="http://www.w3.org/1999/xhtml">
-				<head></head>
-				<body>
-				<table>
-				<tr><td>Name:</td><td>' .  $posted['name'].'</td></tr>
-				<tr><td>Email:</td><td>' . $posted["email"] . '</td></tr>
-				<tr><td>Mobile:</td><td>' . $posted["mob"] . '</td></tr>
-				<tr><td>Address:</td><td>' . $posted["addr"] . '</td></tr>
-				<tr><td>State:</td><td>' . $posted["state"] . '</td></tr>
-				<tr><td>Post applied for:</td><td>' . $posted["post_app"] . '</td></tr>
-				<tr><td>Serial No(Job Code):</td><td>' . $posted["sl_no"] . '</td></tr>
-				<tr><td>Last Qualification :</td><td>' . $posted["last_qulifc"] . '</td></tr>
-				</table>
-				</body>
-				</html>
-				';
-				//$this->email->attach($posted['fileField']);
-				$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
-                                if($status == 'success'){
-                                    $this->recruitment_apply($posted["jobid"],'job application successfully submitted');
-                                }
-                                
-                                }								
-			}
-			catch(Exception $err_obj)
-			{
-					show_error($err_obj->getMessage());
-			}
-		}
+    public function job_email()
+            {
+                    //print_r($_FILES['fileField']);
+                    //die();
+                    $this->upload->do_upload('fileField');
+                    $data = $this->upload->data();
 
-        public function contactus_email()
+                    try
+                    {
+                            unset($_POST['action']);
+                            $posted=array();
+                            $posted["jobid"]  = trim($this->input->post("jobid"));
+                            $posted["post_app"]  	= trim($this->input->post("post_app"));
+                            $posted["sl_no"]  	= trim($this->input->post("sl_no"));
+                            $posted["name"]  	= trim($this->input->post("name"));
+                            $posted["mob"]      = trim($this->input->post("mob"));
+                            $posted["email"]  	= trim($this->input->post("email"));
+                            $posted["addr"]  	= trim($this->input->post("addr"));
+                            $posted["state"]  	= trim($this->input->post("state"));	
+                            $posted["city"]  	= trim($this->input->post("city"));	
+                            $posted["last_qulifc"]  	= trim($this->input->post("last_qulifc"));	
+                            $posted["fileField"]  	= trim($this->input->post("fileField"));							
+                            /*                                echo "hello";
+                            echo "<pre>";
+                            print_r($posted);
+                            echo "</pre>";
+                            die();
+                            */                                
+                            // Call model and insert data
+                            //$this->form_validation->set_rules('fname', 'fname', 'trim|required|xss_clean');
+                            //$this->form_validation->set_rules('lname', 'lname', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('name', 'name', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('mob', 'mob', 'trim|required|xss_clean');
+                            $this->form_validation->set_message('required', 'Please fill in the fields');
+
+                            if($this->form_validation->run() == FALSE)/////invalid
+                            {
+                            ////////Display the add form with posted values within it////
+                            $this->data["posted"]=$posted;
+                            }
+                            else
+                            {
+                            // ------------------ email send code start ------------------ //
+
+                            $message='
+                            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                            <html xmlns="http://www.w3.org/1999/xhtml">
+                            <head></head>
+                            <body>
+                            <table>
+                            <tr><td>Name:</td><td>' .  $posted['name'].'</td></tr>
+                            <tr><td>Email:</td><td>' . $posted["email"] . '</td></tr>
+                            <tr><td>Mobile:</td><td>' . $posted["mob"] . '</td></tr>
+                            <tr><td>Address:</td><td>' . $posted["addr"] . '</td></tr>
+                            <tr><td>State:</td><td>' . $posted["state"] . '</td></tr>
+                            <tr><td>Post applied for:</td><td>' . $posted["post_app"] . '</td></tr>
+                            <tr><td>Serial No(Job Code):</td><td>' . $posted["sl_no"] . '</td></tr>
+                            <tr><td>Last Qualification :</td><td>' . $posted["last_qulifc"] . '</td></tr>
+                            </table>
+                            </body>
+                            </html>
+                            ';
+                            //$this->email->attach($posted['fileField']);
+                            $status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
+                            if($status == 'success'){
+                                $this->recruitment_apply($posted["jobid"],'job application successfully submitted');
+                            }
+
+                            }								
+                    }
+                    catch(Exception $err_obj)
+                    {
+                                    show_error($err_obj->getMessage());
+                    }
+            }
+
+    public function contactus_email()
 		{
 			try
 			{
