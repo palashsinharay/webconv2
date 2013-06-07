@@ -238,18 +238,18 @@ function validateEmail(user_email){
     <div class="foot_link">
     <ul class="first_link">
     <li> <a  href="#login-box" class="login-window">Enquiry</a> <span>|</span></li> 
-    <li><a href="#">Services</a> <span>|</span></li>   
-    <li><a href="#">Our Team</a> <span>|</span></li> 
-    <li><a href="#">Recruitment</a> <span>|</span></li> 
-    <li><a href="#">Photo Gallery</a> <span>|</span></li> 
-    <li><a href="#">Site Map</a> <span>|</span></li> 
-    <li><a href="#">Contact Us</a></li> 
+    <li><a href="<?php echo site_url('main/categories/5')?>">Services</a> <span>|</span></li>   
+    <li><a href="<?php echo site_url('main/page/33')?>">Our Team</a> <span>|</span></li> 
+    <li><a href="<?php echo site_url('main/recruitment')?>">Recruitment</a> <span>|</span></li> 
+    <li><a href="<?php echo site_url('main/gallery')?>">Photo Gallery</a> <span>|</span></li> 
+<!--    <li><a href="#">Site Map</a> <span>|</span></li> -->
+    <li><a href="<?php echo site_url('main/contact_us')?>">Contact Us</a></li> 
     </ul>
     <div class="clear"></div>
     <ul class="second_link">
-    <li><a href="#">Privacy Policy</a> <span>|</span></li>  
-    <li><a href="#">Disclaimer</a> <span>|</span></li>   
-    <li><a href="#">Terms &amp; Conditions</a></li> 
+    <li><a href="<?php echo site_url('main/page/61')?>">Privacy Policy</a> <span>|</span></li>  
+    <li><a href="<?php echo site_url('main/page/62')?>">Disclaimer</a> <span>|</span></li>   
+    <li><a href="<?php echo site_url('main/page/63')?>">Terms &amp; Conditions</a></li> 
     </ul>
     </div>
     <div class="footer_address">
