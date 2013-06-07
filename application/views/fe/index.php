@@ -1,9 +1,11 @@
 <?php //include ("common/header.php");?>
 <div class="clear"></div>
 <div class="scroll_txt">
+    <?php if($site_data->notice != NULL):?>
 <marquee id="marquee" onmouseover="marquee.stop();" onmouseout="marquee.start();" scrollamount="2" direction="left">
-Provisional certificate for <a href="#">completion of degree</a> 2007-2008
+<?php echo $site_data->notice; ?> 
 </marquee>
+    <?php endif;?>
 </div>
 <div class="clear"></div>
 <!-- banner start -->
