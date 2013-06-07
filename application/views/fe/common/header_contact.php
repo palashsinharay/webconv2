@@ -104,44 +104,39 @@
 <div class="navigaion_pan">
 
 <ul>
-<?php 
-       $url_arr=array_reverse(explode('/',$_SERVER['PHP_SELF']),FALSE);  
-//       echo $url_arr[0];
-//       echo $url_arr[1];
-?>
-<li><a href="<?php echo site_url('main/index');?>" class="<?php echo $url_arr[0]=='index'?'active':'';?>">Home</a></li>
-<li class="drop"><a id="Who We Are" class="<?php echo $url_arr[1]=='page'?'active':'';?>" href="#<?php //echo site_url('main/page/1');?>">Who We Are</a>
+
+<li><a href="<?php echo site_url('main/index');?>" class="<?php echo $this->uri->segment(2)=='index'?'active':'';?>">Home</a></li>
+<li class="drop"><a id="Who We Are" class="<?php echo $this->uri->segment(2)=='page'?'active':'';?>" href="#<?php //echo site_url('main/page/1');?>">Who We Are</a>
 <div class="drop_pan" style="width:200px;">
 <ul>
 <?php foreach($whoweare_links as $values):?>
-<li><a id="<?php echo $values->id;?>" class="<?php echo $url_arr[0]==$values->id?'active':'';?>" href="<?php echo site_url('main/page/'.$values->id);?>"><?php echo $values->menutitle;?></a></li>
+<li><a id="<?php echo $values->id;?>" class="<?php echo $this->uri->segment(3)==$values->id?'subactive':'';?>" href="<?php echo site_url('main/page/'.$values->id);?>"><?php echo $values->menutitle;?></a></li>
 <?php endforeach;?>
 </ul>
 </div>
 </li>
 
 
-<li class="drop"><a class="<?php echo $url_arr[1]=='categories'?'active':'';?>" href="<?php echo base_url();?>main/page/17">What We Do</a>
+<li class="drop"><a class="<?php echo $this->uri->segment(2)=='categories'?'active':'';?>" href="<?php echo base_url();?>main/page/17">What We Do</a>
 <div class="drop_pan" style="width:160px;">
 <ul>
     
     <?php foreach($whatwedo_links as $values):?>
     <?php //echo "<pre>"; print_r($values); echo "</pre>" ;?>
-    <li><a id="<?php echo $values->categories_id;?>" href="<?php echo site_url('main/categories/'.$values->categories_id);?>"><?php echo $values->category_name;?></a></li>
+    <li><a id="<?php echo $values->categories_id;?>" class="<?php echo $this->uri->segment(3)==$values->categories_id?'subactive':'';?>" href="<?php echo site_url('main/categories/'.$values->categories_id);?>"><?php echo $values->category_name;?></a></li>
     <?php endforeach;?>
 </ul>
 </div>
 </li>
 
-<li><a class="<?php echo $url_arr[0]=='recruitment'?'active':'';?>" href="<?php echo site_url('main/recruitment')?>">Recruitment</a></li>
-<li><a class="<?php echo $url_arr[0]=='gallery'?'active':'';?>" href="<?php echo site_url('main/gallery')?>">Photo Gallery</a></li>
-<li><a class="<?php echo $url_arr[0]=='resource_center_list'?'active':'';?>" href="<?php echo site_url('main/resource_center_list')?>">Resouce Centre</a></li>
-<li><a class="<?php echo $url_arr[0]=='contact_us'?'active':'';?>" href="<?php echo site_url('main/contact_us');?>">Contact Us</a></li>
+<li><a class="<?php echo $this->uri->segment(2)=='recruitment'?'active':'';?>" href="<?php echo site_url('main/recruitment')?>">Recruitment</a></li>
+<li><a class="<?php echo $this->uri->segment(2)=='gallery'?'active':'';?>" href="<?php echo site_url('main/gallery')?>">Photo Gallery</a></li>
+<li><a class="<?php echo $this->uri->segment(2)=='resource_center_list'?'active':'';?>" href="<?php echo site_url('main/resource_center_list')?>">Resouce Centre</a></li>
+<li><a class="<?php echo $this->uri->segment(2)=='contact_us'?'active':'';?>" href="<?php echo site_url('main/contact_us');?>">Contact Us</a></li>
 </ul>
 
 
 
 
 </div>
-
 <!-- navigaion end -->

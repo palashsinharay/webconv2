@@ -128,8 +128,8 @@
 .fancyNav li a{
 	color: #5d5d5d;
 	display: inline-block;
-	font: 20px/1 Lobster,Arial,sans-serif;
-	padding: 12px 30px 14px;
+	font: 16px/1 Lobster,Arial,sans-serif;
+	padding: 12px 23px 14px;
 	position: relative;
 	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
 	z-index:2;
