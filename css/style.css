@@ -31,7 +31,8 @@ input.text,select,textarea{background:#fff; border:solid 1px #e1e1e1; font-size:
 
 .topContainer {height:95px; padding:20px 10px 0;}
 .logo {width:328px; height:68px; float:left; margin-top:5px;}
-h1.logo_right {width:150px; height:86px; float:right; background:url(../images/logo_right.png) 0 0 no-repeat;}
+<!--h1.logo_right {width:150px; height:86px; float:right; background:url(../images/logo_right.png) 0 0 no-repeat;}-->
+h1.logo_right {width:116px; height:66px; float:right; background:url(../images/logo_right.png) 0 0 no-repeat; margin-top:15px;}
 
 .navigaion_pan {background:url(../images/menu_bg.png) 0 0 repeat-x; border:1px solid #6dcbda; height:48px;}
 /*.navigaion_pan li:first-child {margin-left:2px;}*/
