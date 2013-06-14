@@ -421,10 +421,11 @@ class Admin extends CI_Controller {
     $crud->set_table('site_configure')
          ->set_subject('Site Configure');
     
-    $crud->columns('sname','admin_email','notice')
+    $crud->columns('sname','admin_email','notice','footer_content')
         ->display_as('sname','Site Title')
         ->display_as('admin_email','Admin Email')
-        ->display_as('notice','notice on home page');
+        ->display_as('notice','notice on home page')
+        ->display_as('footer_content','Footer Content');
     
         $crud->unset_add();
     //below code is for edit and add

@@ -1,6 +1,7 @@
 <?php 
 echo "<pre>";
-//print_r($featured_menu);
+//print_r($siteConfigureContent);
+//echo $siteConfigureContent->footer_content;
 echo "</pre>";
 ?>
 <script type="text/javascript">
@@ -253,7 +254,7 @@ function validateEmail(user_email){
     </ul>
     </div>
     <div class="footer_address">
-    <h6>Webcon Consulting (India) Ltd.</h6>
+<!--    <h6>Webcon Consulting (India) Ltd.</h6>
     <ul>
     <li>Chatterjee International Centre, 4th Floor</li>
     <li>33A, Jawaharlal Nehru Road</li>
@@ -261,7 +262,9 @@ function validateEmail(user_email){
     <li>Phone: (033) 22266527/ 6278 , 40706060/61  <span>|</span>  Fax: (033) 22881884</li>
     <li>Email: <a href="mailto:info@webcon.in">info@webcon.in</a>  <span>|</span> Website: <a href="http://www.webcon.in" target="_blank">www.webcon.in</a></li>
 
-    </ul>
+    </ul>-->
+
+<?php  echo $siteConfigureContent->footer_content; ?>
     </div>
     </div>
 <div class="clear"></div>

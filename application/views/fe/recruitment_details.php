@@ -33,10 +33,10 @@
 <td></td>
 
 </tr>
-<tr>
+<!--<tr>
 <td class="title">Expected Salary:</td>
 <td class="desrp"><?php echo $recruitmentContent->salary;?></td>
-</tr>
+</tr>-->
 <tr>
 <td class="title">Vacancies :</td>
 <td class="desrp"><?php echo $recruitmentContent->vacancies;?></td>

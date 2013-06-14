@@ -31,6 +31,7 @@ class Main extends CI_Controller {
                 $data['news'] = $this->Cms->get_news_list(1);
                 $data['whoweare_links']=$this->Cms->get_page_basedonCatId('3,4');
                 $data['whatwedo_links'] = $this->Cms->get_category_nameAndId('what_we_do');
+                 $data['siteConfigureContent'] = $this->Cms->get_siteConfigure_content();  
                 
                 $this->load->view('fe/common/header.php',$data);
                 $this->load->view('fe/'.$page.'.php',$data);
@@ -44,6 +45,7 @@ class Main extends CI_Controller {
                 $data['news'] = $this->Cms->get_news_list(1);
                 $data['whoweare_links']=$this->Cms->get_page_basedonCatId('3,4');
                 $data['whatwedo_links'] = $this->Cms->get_category_nameAndId('what_we_do');
+                 $data['siteConfigureContent'] = $this->Cms->get_siteConfigure_content();  
                 
                 $this->load->view('fe/common/header_contact.php',$data);
                 $this->load->view('fe/'.$page.'.php',$data);
@@ -54,13 +56,18 @@ class Main extends CI_Controller {
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
                 $data['lowerSlider'] = $this->Cms->get_lowerSlider_content();
+               // $data['siteConfigureContent'] = $this->Cms->get_siteConfigure_content();
+//		echo "<pre>";
+//		print_r($data['siteConfigureContent']);
+//		echo "</pre>";
+//                die();                
                 $this->_renderView('index',$data);
     }
     
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
-
+                //$data['siteConfigureContent'] = $this->Cms->get_siteConfigure_content();    
 //		echo "<pre>";
 //              print_r($data['pageDetail']);
 //		echo "</pre>";
@@ -262,7 +269,7 @@ class Main extends CI_Controller {
                         // die();
                             //$this->email->attach($posted['fileField']);
                             //$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"],$data['full_path']);
-                            $status = $this->email_send($message,'enquiry@webcon.in',$posted["email"],$data['full_path']);
+                            $status = $this->email_send($message,'hr@webcon.in',$posted["email"],$data['full_path']);
                             if($status == 'success'){
                                 $i_newid=$this->Cms->add_recruitment_data($info);
                                 $this->recruitment_apply($posted["jobid"],'job application successfully submitted');
@@ -327,7 +334,7 @@ class Main extends CI_Controller {
                            
 
                             //$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
-                            $status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
+                            $status = $this->email_send($message,'patrners@webcon.in',$posted["email"]);
 
                             if($status == 'success'){
                                echo "Thank you for contacting us"; 
@@ -396,7 +403,7 @@ class Main extends CI_Controller {
 
 
                             //$status = $this->email_send($message,'siddharth@satyajittech.com',$posted["email"]);
-                            $status = $this->email_send($message,'contact@webcon.in',$posted["email"]);
+                            $status = $this->email_send($message,'info@webcon.in',$posted["email"]);
 
                             if($status == 'success'){
                                echo "Thank you for contacting us"; 
