@@ -66,6 +66,18 @@ class Cms extends CI_Model {
 
 	}
 	
+	function get_all_page_sitemap()
+	{
+
+		$query = $this->db->get($this->_cms);
+		$this->result = $query->result();
+//		echo "<pre>";
+//		print_r($this->result);
+//		echo "</pre>";
+		return $this->result;
+
+	}
+	        
  
         //function to get featured menu list
         function get_featured_menu() {

@@ -79,6 +79,21 @@ class Main extends CI_Controller {
  	    
     }
 
+        public function sitemap()
+    {
+		$data['siteMap'] = $this->Cms->get_all_page_sitemap();
+
+//		echo "<pre>";
+//                print_r($data['siteMap']);
+//		echo "</pre>";
+//		die();
+
+                $this->_renderView('sitemap',$data);
+
+                
+ 	    
+    }
+    
     public function gallery()
     {
 		$data['galleryContent'] = $this->Cms->get_gallery_content_all();
