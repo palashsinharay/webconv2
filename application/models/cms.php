@@ -65,7 +65,18 @@ class Cms extends CI_Model {
 		return $this->result[0];
 
 	}
-	
+        function get_siteConfigure_content()
+	{
+
+		$query = $this->db->get($this->_site);
+		$this->result = $query->result();
+//		echo "<pre>";
+//		print_r($this->result);
+//		echo "</pre>";
+//                die();
+		return $this->result[0];
+
+	}	
 	function get_all_page_sitemap()
 	{
 
