@@ -94,7 +94,7 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 .contact_tbl h4 { background:url(../images/contact.png) 0 0 no-repeat; padding-left:30px;}
 
 .left_pan_area {width:320px; float:left;}
-.right_pan_area {width:648px; float:left; padding-right: 10px;}
+.right_pan_area {width:648px; float:right; padding-right: 10px;}
 
 .right_pan_area p {text-align:left; margin-bottom:25px;}
 a.more_link {float:right; width:auto; margin-bottom:10px; font-size:11px; font-weight:bold; text-decoration:none;}
