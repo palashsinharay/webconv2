@@ -21,13 +21,13 @@ echo "</pre>";*/
 
 </div>
 
-<div class="right_pan_area">
+<div class="right_pan_area list_cat_page">
 <ul>
 <?php 
 	foreach($categories_items as $values):
 ?>
 <li>
-<a href="<?php echo site_url('main/page/'.$values->id);?>" class="more_link"><?php echo $values->menutitle;?></a>
+<a href="<?php echo site_url('main/page/'.$values->id);?>" class="more_link" ><?php echo $values->menutitle;?></a>
 </li>
 <?php endforeach;?>
 

@@ -25,7 +25,7 @@
 <tr>
 <td><?php echo $row->date;?></td>
 <td class="desrp"><?php echo $row->title;?></td>
-<td><a href="<?php echo site_url('main/news_details/'.$row->id);?>"><img src="images/detail.png" alt="News Details" title="News Details" /></a></td>
+<td><a href="<?php echo site_url('main/news_details/'.$row->id);?>"><img src="<?php echo site_url('images/detail.png')?>" alt="News Details" title="News Details" /></a></td>
 </tr>
 <?php endforeach;?>
 </tbody>

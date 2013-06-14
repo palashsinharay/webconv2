@@ -242,7 +242,7 @@ function validateEmail(user_email){
     <li><a href="<?php echo site_url('main/page/33')?>">Our Team</a> <span>|</span></li> 
     <li><a href="<?php echo site_url('main/recruitment')?>">Recruitment</a> <span>|</span></li> 
     <li><a href="<?php echo site_url('main/gallery')?>">Photo Gallery</a> <span>|</span></li> 
-<!--    <li><a href="#">Site Map</a> <span>|</span></li> -->
+    <li><a href="<?php echo site_url('main/sitemap')?>">Site Map</a> <span>|</span></li> 
     <li><a href="<?php echo site_url('main/contact_us')?>">Contact Us</a></li> 
     </ul>
     <div class="clear"></div>

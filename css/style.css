@@ -94,9 +94,9 @@ ul li.drop .drop_pan li a:hover {color:#042c2a; background:#45b7cb; border:none;
 .contact_tbl h4 { background:url(../images/contact.png) 0 0 no-repeat; padding-left:30px;}
 
 .left_pan_area {width:320px; float:left;}
-.right_pan_area {width:648px; float:right; padding-right: 10px;}
+.right_pan_area {width:648px; float:left; padding-right: 10px;}
 
-.right_pan_area p {text-align:justify; margin-bottom:25px;}
+.right_pan_area p {text-align:left; margin-bottom:25px;}
 a.more_link {float:right; width:auto; margin-bottom:10px; font-size:11px; font-weight:bold; text-decoration:none;}
 .left_box {margin-bottom:20px; padding:0;}
 .left_box_title {background:url(../images/pan_top.png) 0 0 no-repeat; height:49px; padding:12px 0 0 30px; font-family:'CALIBRI' !important; font-size:18px; font-weight:bold; text-transform:uppercase; color:#fff;}
@@ -182,3 +182,10 @@ a.more_link {float:right; width:auto; margin-bottom:10px; font-size:11px; font-w
 .scroll_txt {height:25px; border:2px solid #c7c7c7; margin-top:5px; padding:5px 2px 0; background:#dfdfdf; font-weight:bold; color:#047878;}
 .scroll_txt a {font-weight:bold; text-decoration:none; color:#ff5000;}
 .scroll_txt a:hover {text-decoration:underline;}
+.list_cat_page{
+    margin-top:20px;
+    
+}
+.list_cat_page ul li a{
+    float: none; padding: 20px 0 0 20px;
+}

@@ -35,7 +35,7 @@ $(function() {
 <div id="content_wrapper">
 <!-- top section start -->
 	<div class="topContainer">
-    <div class="logo"><a href="#"><img src="<?php echo site_url('images/logo.png')?>" alt="Webcon Consulting India Ltd." title="Webcon Consulting India Ltd." /></a></div>
+    <div class="logo"><a href="<?php echo site_url('main/index');?>"><img src="<?php echo site_url('images/logo.png')?>" alt="Webcon Consulting India Ltd." title="Webcon Consulting India Ltd." /></a></div>
     <h1 class="logo_right"></h1>
     </div>
 <!-- top section end -->

@@ -28,7 +28,7 @@
 <td><?php echo $value->post_date;?></td>
 <td class="desrp"><?php echo $value->description;?></td>
 <td><?php echo $value->submission_date;?></td>
-<td><a href="<?php echo site_url('assets/uploads/files/'.$value->filename);?>"><img src="<?php site_url('images/view_tender.png');?>"' alt="View Tender" /></a></td>
+<td><a href="<?php echo site_url('assets/uploads/files/'.$value->filename);?>"><img src="<?php echo site_url('images/view_tender.png');?>"' alt="View Tender" /></a></td>
 </tr>
 <?php endforeach; ?>  
 <!--<tr>
