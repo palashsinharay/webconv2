@@ -304,7 +304,7 @@ class Admin extends CI_Controller {
         
          $crud->set_relation('id','cms_page','menutitle');
         //below code is for edit and add
-        //$crud->fields('menutitle','icon');
+        $crud->fields('id','icon','status');
         //$crud->required_fields('menutitle','content');
         
         
@@ -314,7 +314,7 @@ class Admin extends CI_Controller {
         //     ->set_rules('firstName','first name nnn','integer|required')
         //     ->set_rules('email','email nnn','valid_email|required');
         //below code is for file upload
-        $crud->set_field_upload('icon','assets/uploads/files');
+        //$crud->set_field_upload('icon','assets/uploads/files');
         
         $output = $crud->render();
         $this->_example_output($output);
