@@ -22,6 +22,8 @@ class Main extends CI_Controller {
 		//$this->email->initialize($this->config);
 
 		$this->load->model('Cms');
+                
+                
  
     }
     public function _renderView($page,$data) {
@@ -54,6 +56,7 @@ class Main extends CI_Controller {
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
                 $data['lowerSlider'] = $this->Cms->get_lowerSlider_content();
+                $this->Cms->increment();
                 $this->_renderView('index',$data);
     }
     

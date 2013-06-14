@@ -56,11 +56,14 @@ a:hover
                 
             </ul>
         </nav>
-    
-   
+    <div id="vCount" style="margin-left: 65px; margin-top: 10px;">
+   <?php echo "<strong> Visiter Count : ".number_format($count)."</strong>";?>
+        </div>
 <!--	<div style='height:20px;'></div>  -->
     <div id="data_tbl">
+        
 		<?php echo $output; ?>
     </div>
+
 </body>
 </html>

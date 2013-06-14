@@ -69,8 +69,9 @@ class Admin extends CI_Controller {
     }
     
     function _example_output($output = null) {
-        
-                    $this->load->view('example.php',$output);
+                    
+        $output->count = $this->Cms->get_total();           
+        $this->load->view('example.php',$output);
                 
                   
     }
@@ -140,7 +141,7 @@ class Admin extends CI_Controller {
             ->display_as('menutitle','Title')
             ->display_as('content','Content')
             ->display_as('pid','parent id')
-            ->display_as('filename','Banner')
+            ->display_as('filename','Banner(996 x 129)')
             ->display_as('categories_id','category type');
         
         
@@ -361,6 +362,7 @@ class Admin extends CI_Controller {
             ->columns('slider_id','id','image','short_title')
             ->display_as('slider_id','featured slider id') 
             ->display_as('id','page title')
+            ->display_as('image','image(209 x 107)')
             ->display_as('short_title','Short title');
             
             
@@ -439,8 +441,8 @@ class Admin extends CI_Controller {
     //     ->set_rules('email','email nnn','valid_email|required');
     //below code is for file upload
     //$crud->set_field_upload('filename','assets/uploads/files');
-
     $output = $crud->render();
+    
     $this->_example_output($output);
 }
 
