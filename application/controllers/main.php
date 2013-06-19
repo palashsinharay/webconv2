@@ -88,6 +88,9 @@ class Main extends CI_Controller {
         public function sitemap()
     {
 		$data['siteMap'] = $this->Cms->get_all_page_sitemap();
+		//$siteMap = $this->Cms->get_categories();
+		
+		//echo $siteMap;
 
 //		echo "<pre>";
 //                print_r($data['siteMap']);

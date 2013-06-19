@@ -288,8 +288,39 @@ public function add_recruitment_data($info)
             show_error($err_obj->getMessage());
         }          
     }        
-        
+       
+	   /*+++++++++++++++++++++++++++++++++*/ 
+	   public function get_categories($parent = 0)
+		{
+			try{
+			
+				$html = '<ul>';
+				$query = mysql_query("SELECT * FROM cms_page WHERE pid = '$parent'");
+				while($row = mysql_fetch_assoc($query))
+				{
+					$current_id = $row['id'];
+					$html .= '<li>' . $row['menutitle'];
+					$has_sub = NULL;
+					$has_sub = mysql_num_rows(mysql_query("SELECT COUNT(pid) FROM cms_page WHERE pid = '$current_id'"));
+					if($has_sub)
+					{
+						$html .= $this->get_categories($current_id);
+					}
+					$html .= '</li>';
+				}
+				$html .= '</ul>';
+				return $html;
+			}
+			catch(Exception $err_obj)
+			{
+				show_error($err_obj->getMessage());
+			} 
+		}
 
+		
+
+
+	   /*+++++++++++++++++++++++++++++++++*/
 	}	
 
 
